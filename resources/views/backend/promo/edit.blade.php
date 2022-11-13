@@ -31,7 +31,7 @@
                 <h6 class="m-0 font-weight-bold text-primary popppins-bold">Nama Promo : {{ $data->title }}</h6>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.promo.update', $data->id) }}" method="POST">
+                <form action="{{ route('admin.promo.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method("PATCH")
 

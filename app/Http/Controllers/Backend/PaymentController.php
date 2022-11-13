@@ -30,7 +30,7 @@ class PaymentController extends Controller
     {
         $data = Payment::find($id);
         
-        $logo = public_path('images_kupon/' . $data->logo);
+        $logo = public_path('logo_bank/' . $data->logo);
         unlink($logo);
 
         $data->delete();
@@ -55,7 +55,7 @@ class PaymentController extends Controller
             ]);
         } else {
             # jika ada maka
-            $logo = public_path('images_kupon/' . $data->logo);
+            $logo = public_path('logo_bank/' . $data->logo);
             unlink($logo);
 
             $request->validate([

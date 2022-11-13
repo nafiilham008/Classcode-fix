@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel='icon' href='{{ asset('assets/node_modules/bootstrap/dist/css/img/classcode.png') }}'
-        type='image/x-icon' sizes="3x3" />
+    <link rel='icon' href='{{ asset(' assets/node_modules/bootstrap/dist/css/img/classcode.png') }}' type='image/x-icon'
+        sizes="3x3" />
     <!-- Style Bootstrap -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/node_modules/bootstrap/dist/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
@@ -54,50 +54,56 @@
                     </li>
                 </ul>
                 @guest
-                    <ul class="navbar-nav mt-lg-0 mt-autp">
-                        <li class="nav-item d-none d-lg-block">
-                            <a class="nav-link ml-4 poppins-light" href="{{ route('login') }}">Sign In</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav mt-lg-0 mt-auto">
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-success mr-5 poppins-light rounded-bro register"
-                                style="text-align: center;" href="{{ route('register') }}"> Register </a>
-                        </li>
-                    </ul>
+                <ul class="navbar-nav mt-lg-0 mt-autp">
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link ml-4 poppins-light" href="{{ route('login') }}">Sign In</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mt-lg-0 mt-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-success mr-5 poppins-light rounded-bro register"
+                            style="text-align: center;" href="{{ route('register') }}"> Register </a>
+                    </li>
+                </ul>
                 @else
-                    <ul class="navbar-nav mt-lg-0">
-                        <li class="nav-item">
-                            {{-- <a href="#" class="nav-link fas fa-user-circle fa-2x text-white ml-4"></a> --}}
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4"
-                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbar-list-4">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle fas fa-user-circle fa-2x text-white ml-4"
-                                            href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item poppins-light"
-                                                href="{{ route('dashboard.index') }}">Dashboard</a>
-                                            <a class="dropdown-item poppins-light" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
+                <ul class="navbar-nav mt-lg-0">
+                    <li class="nav-item">
+                        {{-- <a href="#" class="nav-link fas fa-user-circle fa-2x text-white ml-4"></a> --}}
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbar-list-4">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle fas fa-user-circle fa-2x text-white ml-4"
+                                        href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        @role('admin')
+                                        <a class="dropdown-item poppins-light"
+                                            href="{{ route('admin.index') }}">Dashboard</a>
+                                        @endrole
+                                        @role('user')
+                                        <a class="dropdown-item poppins-light"
+                                            href="{{ route('dashboard.index') }}">Dashboard</a>
+                                        @endrole
+                                        <a class="dropdown-item poppins-light" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
                                                                           document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
                 @endguest
 
             </div>

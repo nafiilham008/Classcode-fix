@@ -56,12 +56,14 @@ class PromoController extends Controller
         ]);
 
         $request->image->move(public_path('images_kupon'), $imageName);
-        return redirect()->route('admin.promo');
+        return redirect()->route('admin.promo')->with('success', 'Promo Berhasil ditambahkan');
     }
 
     public function hapus($id)
     {
         $data = Promo::find($id);
+        $image = public_path('images_kupon/' . $data->image);
+        unlink($image);
         $data->delete();
         return redirect()->route('admin.promo')->with('success', 'Promo Berhasil dihapus');
     }
@@ -99,6 +101,8 @@ class PromoController extends Controller
     public function update(Request $request, $id)
     {
         $data = Promo::find($id);
+        // dd($request->all());
+
 
         if ($request->image == '') {
             // Jika tidak ubah gambar
@@ -117,15 +121,21 @@ class PromoController extends Controller
             ]);
         } else {
             // jika ubah gambar
+            // dd($request->image);
             $request->validate([
                 'title' => 'required',
                 'kode_promo' => 'required',
                 'diskon' => 'required',
                 'deskripsi' => 'required',
-                'image' => 'required|image|mimes:jpg,png'
-            ]);
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
 
+            ]);
+            $image = public_path('images_kupon/' . $data->image);
+            unlink($image);
+            
             $imageName = time() . '.' . $request->image->extension();
+            
+            // dd($imageName);
 
             $data->update([
                 'title' => $request->title,
@@ -136,7 +146,6 @@ class PromoController extends Controller
             ]);
 
             $request->image->move(public_path('images_kupon'), $imageName);
-            return redirect()->route('admin.promo');
         }
 
 

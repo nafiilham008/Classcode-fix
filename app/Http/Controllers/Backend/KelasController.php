@@ -29,9 +29,9 @@ class KelasController extends Controller
     public function hapus($id)
     {
         $data = Kelas::find($id);
-        // $image = public_path('images_kelas/' . $data->image);
-        // unlink($image);
         // dd($image);
+        $image = public_path('images_kelas/' . $data->image);
+        unlink($image);
         $data->delete();
         return redirect()->route('admin.kelas')->with('success', 'Kelas Berhasil dihapus');
     }
@@ -60,9 +60,7 @@ class KelasController extends Controller
             ]);
         } else {
             # jika ada maka
-            // $image = public_path('images_kelas/' . $data->image);
-            // unlink($image);
-
+            
             $request->validate([
                 'title' => 'required',
                 'url_video' => 'required',
@@ -70,7 +68,9 @@ class KelasController extends Controller
                 'harga' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
-
+            
+            $image = public_path('images_kelas/' . $data->image);
+            unlink($image);
             $imageName = time() . '.' . $request->image->extension();
 
             $data->update([
@@ -95,7 +95,7 @@ class KelasController extends Controller
             'title' => 'required',
             'description' => 'required',
             'harga' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $imageName = time() . '.' . $request->image->extension();

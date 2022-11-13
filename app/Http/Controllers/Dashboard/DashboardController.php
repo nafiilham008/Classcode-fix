@@ -21,22 +21,22 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->role == "user") {
-            # code...
-            $data = DB::table('join_kelas')
-                ->select('kelas.*', 'join_kelas.*')
-                ->join('kelas', 'join_kelas.kelas_id', '=', 'kelas.id')
-                ->where('join_kelas.user_id', auth()->user()->id)
-                ->get();
+        $data = DB::table('join_kelas')
+            ->select('kelas.*', 'join_kelas.*')
+            ->join('kelas', 'join_kelas.kelas_id', '=', 'kelas.id')
+            ->where('join_kelas.user_id', auth()->user()->id)
+            ->get();
 
-            return view('dashboard.index', compact('data'));
-        } else if (auth()->user()->role == "admin") {
-            # code...
-            return redirect()->route('admin.index');
-        } else {
-            # code...
-            return redirect()->back();
-        }
+        return view('dashboard.index', compact('data'));
+        // if (auth()->user()->role == "user") {
+        //     # code...
+        // } else if (auth()->user()->role == "admin") {
+        //     # code...
+        //     return redirect()->route('admin.index');
+        // } else {
+        //     # code...
+        //     return redirect()->back();
+        // }
     }
 
 
