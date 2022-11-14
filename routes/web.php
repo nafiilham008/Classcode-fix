@@ -56,10 +56,14 @@ Route::group(['middleware' => ['role:admin']], function () {
         // Route::get('/', [App\Http\Controllers\Backend\AdminController::class, 'tampilUser'])->name('admin.index');
 
 
+        Route::get('user/buat', [App\Http\Controllers\Backend\UserController::class, 'create'])->name('admin.user.buat');
+        Route::post('user/simpan', [App\Http\Controllers\Backend\UserController::class, 'store'])->name('admin.user.store');
         Route::get('user', [App\Http\Controllers\Backend\UserController::class, 'index'])->name('admin.user');
         Route::get('user/{id}/hapus', [App\Http\Controllers\Backend\UserController::class, 'hapus'])->name('admin.user.hapus');
         Route::get('user/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'edit'])->name('admin.user.edit');
+        // Route::get('user/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'editRole'])->name('admin.user.edit.role');
         Route::patch('user/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'update'])->name('admin.user.update');
+        Route::patch('user/{id}/edit/role', [App\Http\Controllers\Backend\UserController::class, 'updateRole'])->name('admin.user.update.role');
 
         // KELAS
         Route::get('kelas', [App\Http\Controllers\Backend\KelasController::class, 'index'])->name('admin.kelas');

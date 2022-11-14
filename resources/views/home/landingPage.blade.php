@@ -32,9 +32,8 @@
 <body>
     @include('layouts.backend.menu2')
 
-    <div class="grid lg:grid-cols-12">
-<div>
-    </div>
+    {{-- <div class="grid lg:grid-cols-12"> --}}
+
     
     <!-- Footer -->
 

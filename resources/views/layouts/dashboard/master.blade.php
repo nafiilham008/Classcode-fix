@@ -70,7 +70,7 @@
                                 </button>
                             </div>
                         </div> --}}
-                        <h5 class="poppins-bold">Hi, {{ Auth::user()->name }} - Welcome to Dashboard User </h5>
+                        <h5 class="poppins-bold">Hi, {{ Auth::user()->username }} - Welcome to Dashboard User </h5>
                     </form>
 
                     <!-- Topbar Navbar -->
@@ -81,7 +81,7 @@
                         <li class="nav-item">
                             <div class="poppins-bold">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small poppins-light">
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->username }}
                                 </span>
                                 <i class="fas fa-user"></i>
                             </div>

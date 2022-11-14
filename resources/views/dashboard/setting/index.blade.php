@@ -25,7 +25,7 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary poppins-bold">Nama User : {{ $data->name }}</h6>
+            <h6 class="m-0 font-weight-bold text-primary poppins-bold">Nama User : {{ $data->username }}</h6>
         </div>
         <div class="card-body">
             <form action="{{ route('dashboard.setting.update', $data->id) }}" method="POST">
@@ -33,7 +33,7 @@
                 @method("PATCH")
                 <div class="form-group poppins-bold">
                     <label for="email">Full Name</label>
-                    <input type="text" class="form-control poppins-light" name="name" value="{{ $data->name }}">
+                    <input type="text" class="form-control poppins-light" name="name" value="{{ $data->username }}">
                 </div>
                 <div class="form-group poppins-bold">
                     <label for="exampleFormControlTextarea1">Alamat</label>

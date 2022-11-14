@@ -107,7 +107,7 @@ class KelasController extends Controller
             'description' => $request->description,
             'harga' => $request->harga,
             'image' => $imageName,
-            'id_user' => auth()->user()->name
+            'id_user' => auth()->user()->username
         ]);
 
         $request->image->move(public_path('images_kelas/'), $imageName);

@@ -1,7 +1,7 @@
 @extends('layouts.backend.master')
 
 @section('title')
-    Tambah Promo
+    Tambah User
 @endsection
 
 @section('content')
@@ -31,27 +31,27 @@
 
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="{{ route('admin.promo.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.user.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group popppins-bold">
-                        <label for="exampleInputEmail1">Nama Promo</label>
-                        <input name="title" type="text" class="form-control popppins-light">
+                        <label for="exampleInputEmail1">Nama</label>
+                        <input name="name" type="text" class="form-control popppins-light" placeholder="Nama User">
                     </div>
                     <div class="form-group popppins-bold">
-                        <label for="exampleInputPassword1">Kode Promo</label>
-                        <input name="kode_promo" type="text" class="form-control popppins-light">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input name="email" type="email" class="form-control popppins-light" placeholder="Email User">
                     </div>
                     <div class="form-group popppins-bold">
-                        <label for="exampleInputPassword1">Diskon</label>
-                        <input name="diskon" type="number" class="form-control popppins-light">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input name="password" type="password" class="form-control popppins-light" placeholder="Password User">
                     </div>
-                    <div class="form-group popppins-bold">
-                        <label for="exampleFormControlTextarea1">Deskripsi</label>
-                        <textarea id="summernote" name="deskripsi" class="popppins-light"></textarea>
-                    </div>
-                    <div class="custom-file popppins-bold">
-                        <input name="image" type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Image</label>
+                    <div class="form-group">
+                        <label>Pilih Role</label>
+                        <select class="form-control" name="role">
+                            @foreach ($dataRole as $item)
+                                <option>{{ $item->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary mt-4 btn-block btn-lg">Submit</button>
                 </form>
