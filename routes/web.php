@@ -48,7 +48,7 @@ Route::prefix('promo')->group(function () {
     
 // admin dashboard
 // ['middleware' => ['role:admin']]
-Route::group(['middleware' => ['role:admin']], function () {
+Route::group(['middleware' => ['role:admin|mentor']], function () {
     Route::prefix('admin')->group(function () {
         // USER 
         Route::get('/', [App\Http\Controllers\Backend\AdminController::class, 'index'])->name('admin.index');
@@ -65,7 +65,13 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::patch('user/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'update'])->name('admin.user.update');
         Route::patch('user/{id}/edit/role', [App\Http\Controllers\Backend\UserController::class, 'updateRole'])->name('admin.user.update.role');
 
-        // KELAS
+        Route::get('mentor/setting', [App\Http\Controllers\Backend\UserController::class, 'settingMentor'])->name('admin.user.setting.mentor');
+
+        Route::get('mentor/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'editMentor'])->name('admin.user.setting.edit.mentor');
+        Route::patch('mentor/{id}/edit', [App\Http\Controllers\Backend\UserController::class, 'updateMentor'])->name('admin.user.setting.update.mentor');
+
+
+        // KELAS ADMIN dan MENTOR
         Route::get('kelas', [App\Http\Controllers\Backend\KelasController::class, 'index'])->name('admin.kelas');
         Route::get('kelas/buat', [App\Http\Controllers\Backend\KelasController::class, 'create'])->name('admin.kelas.buat');
 
@@ -73,6 +79,10 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::get('kelas/{id}/edit', [App\Http\Controllers\Backend\KelasController::class, 'edit'])->name('admin.kelas.edit');
         Route::post('kelas', [App\Http\Controllers\Backend\KelasController::class, 'store'])->name('admin.kelas.store');
         Route::patch('kelas/{id}/edit', [App\Http\Controllers\Backend\KelasController::class, 'update'])->name('admin.kelas.update');
+
+        // Pending
+        Route::get('pending', [App\Http\Controllers\Backend\PendingKelasController::class, 'index'])->name('admin.pending.kelas');
+        Route::patch('pending/update/{id}', [App\Http\Controllers\Backend\PendingKelasController::class, 'updateStatus'])->name('admin.pending.kelas.update');
 
         // Kerjasama
         Route::get('partner', [App\Http\Controllers\Backend\PartnershipController::class, 'index'])->name('admin.partner');
@@ -118,7 +128,8 @@ Route::group(['middleware' => ['role:user']], function () {
     Route::get('checkout/{url_kelas}', [App\Http\Controllers\HomeController::class, 'checkout'])->name('checkout.index');
     Route::post('checkout/{url_kelas}', [App\Http\Controllers\HomeController::class, 'check_promo'])->name('check_promo');
     Route::get('cancel_checkout/{slug_url}', [App\Http\Controllers\HomeController::class, 'cancel_checkout'])->name('cancel_checkout');
-    Route::get('payment', [App\Http\Controllers\HomeController::class, 'payment'])->name('payment.index');
+    // Payment
+    // Route::get('payment', [App\Http\Controllers\HomeController::class, 'payment'])->name('payment.index');
     Route::get('checkout/{url_kelas}/pay', [App\Http\Controllers\HomeController::class, 'pay'])->name('bayar');
     Route::post('checkout/{url_kelas}/pay', [App\Http\Controllers\HomeController::class, 'konfirmasi'])->name('bayar.konfirmasi');
     Route::get('checkout/{url_kelas}/pay/sukses', [App\Http\Controllers\HomeController::class, 'konfirmasi'])->name('payment.sukses');
