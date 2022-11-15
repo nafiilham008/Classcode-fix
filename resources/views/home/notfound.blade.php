@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Landing Page</title>
+<title>404 - Not Found</title>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,38 +26,28 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-    <link href="/assets/css/carousel.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-
-    @yield('css-tambahan')
 </head>
 
 <body>
-
-    <div class="sticky top-0 z-20">
-        @include('layouts.backend.menu2')
+    <div class="lg:block hidden">
+        <div class="bg-no-repeat bg-center bg-cover  w-screen h-screen"
+            style="background-image: url('../../assets/image/404m.png');">
+            <div class="flex items-center justify-center h-screen flex-col">
+                <img src="../../assets/image/ilustrasi4.png" alt="">
+                <button class="px-4 py-2 bg-[#75B843]/80 mt-10 rounded-lg hover:bg-[#F9AE55] text-white">Back</button>
+            </div>
+        </div>
     </div>
-
-    @include('layouts.backend.landingpage')
-
-    <!-- Footer -->
-
-    @include('layouts.backend.footer')
-
-    <!-- ini js dan script -->
-    <script src="{{ asset('assets/node_modules/jquery/dist/jquery.min.js') }}" crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script>
-    @yield('js-tambahan')
+    <div class="lg:hidden block">
+        <div class="bg-no-repeat bg-center bg-cover  w-screen h-screen"
+            style="background-image: url('../../assets/image/404m.png');">
+            <div class="flex justify-center h-screen flex-col">
+                <img src="../../assets/image/ilustrasi4.png" alt="">
+                <div class="flex justify-center">
+                    <button
+                        class="px-4 py-2 bg-[#75B843]/80 mt-10 rounded-lg w-max hover:bg-[#F9AE55] text-white">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-
-</html>
