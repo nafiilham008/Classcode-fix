@@ -29,14 +29,23 @@
                 class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto">
                 {{-- SEARCH --}}
                 <div class="relative px-3 py-2">
-                    <input type="search"
-                        class="peer cursor-pointer font-vietnam  relative z-10 h-10 w-10 rounded-full border border-white bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-black text-white focus:pl-16 focus:pr-4" />
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-black peer-focus:stroke-gray-500"
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
+                    <form action="{{ route('home.search') }}" method="GET">
+                        <input type="search" name="search"
+                            class="peer cursor-pointer font-vietnam  relative z-10 h-10 w-10 rounded-full border border-white bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-black text-white focus:pl-16 focus:pr-4 @error('search') is-invalid @enderror"
+                            placeholder="Cari Kelas" />
+                            
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-black peer-focus:stroke-gray-500"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        @error('search')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </form>
                 </div>
                 <div class="lg:hidden  block">
                     <a href="{{ route('index') }}"
@@ -53,16 +62,16 @@
                     </a>
                 </div>
                 {{-- @guest --}}
-                    <a href="{{ route('login') }}"
-                        class="lg:inline-flex font-vietnam lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center">
-                        <span class="hover:text-[#F9AE55]">Masuk</span>
-                    </a>
-                    <a href="{{ route('register') }}"
-                        class="lg:inline-flex lg:w-auto ml-3 font-vietnam  bg-[#75B843] w-full px-4 py-2.5 rounded-full text-white items-center justify-center hover:bg-[#F9AE55] hover:text-[#F9AE55]">
-                        <span>Daftar</span>
-                    </a>
+                <a href="{{ route('login') }}"
+                    class="lg:inline-flex font-vietnam lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center">
+                    <span class="hover:text-[#F9AE55]">Masuk</span>
+                </a>
+                <a href="{{ route('register') }}"
+                    class="lg:inline-flex lg:w-auto ml-3 font-vietnam  bg-[#75B843] w-full px-4 py-2.5 rounded-full text-white items-center justify-center hover:bg-[#F9AE55] hover:text-[#F9AE55]">
+                    <span>Daftar</span>
+                </a>
                 {{-- @else --}}
-                    
+
                 {{-- @endguest --}}
 
 

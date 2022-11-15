@@ -13,26 +13,7 @@
         </h2>
 
     </div>
-    <!-- Actual search box -->
-    <form class="has-search search-responsive mt-5" action="{{ route('home.search') }}" method="GET">
-        <div class="d-flex justify-content-center">
-
-            {{-- <span class="fa fa-search form-control-feedback"></span> --}}
-            <input type="text" style="border-radius: 20px"
-                class="form-control poppins-light @error('search') is-invalid @enderror" placeholder="Cari Kelas.."
-                name="search">
-            @error('search')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            <button class="btn btn-primary fas fa-search fa-1x btn-md ml-2" type="submit"></button>
-        </div>
-    </form>
-    {{-- </div>
-    </div> --}}
-
-
+    
     @if ($data == 'data')
         <h5 class="poppins-bold text-center mt-5">
             Recommend
