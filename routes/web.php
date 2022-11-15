@@ -20,12 +20,12 @@ Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name
 
 Route::get('email', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 
-Route::get('/test', function () {
-    return view('home.landingPage');
-});
-Route::get('/404', function () {
-    return view('home.notfound');
-});
+// Route::get('/test', function () {
+//     return view('home.landingPage');
+// });
+// Route::get('/404', function () {
+//     return view('home.notfound');
+// });
 
 Auth::routes();
 

@@ -34,7 +34,7 @@
             style="background-image: url('../../assets/image/404m.png');">
             <div class="flex items-center justify-center h-screen flex-col">
                 <img src="../../assets/image/ilustrasi4.png" alt="">
-                <button class="px-4 py-2 bg-[#75B843]/80 mt-10 rounded-lg hover:bg-[#F9AE55] text-white">Back</button>
+                <a href="{{ route('index') }}" class="px-4 py-2 bg-[#75B843]/80 mt-10 rounded-lg hover:bg-[#F9AE55] text-white">Back</a>
             </div>
         </div>
     </div>
