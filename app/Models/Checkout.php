@@ -15,6 +15,7 @@ class Checkout extends Model
         'kode_promo',
         'diskon',
         'payment_id',
-        'status'
+        'status',
+        'image_trx'
     ];
 }

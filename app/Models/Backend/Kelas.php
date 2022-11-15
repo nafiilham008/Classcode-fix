@@ -2,6 +2,7 @@
 
 namespace App\Models\Backend;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,4 +18,9 @@ class Kelas extends Model
         'harga',
         'image'
     ];
+
+    // public function users()
+    // {
+    //     return $this->belongsTo(User::class, 'id_user', 'id');
+    // }
 }

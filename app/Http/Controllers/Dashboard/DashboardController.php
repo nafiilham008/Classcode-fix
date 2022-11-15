@@ -25,6 +25,7 @@ class DashboardController extends Controller
             ->select('kelas.*', 'join_kelas.*')
             ->join('kelas', 'join_kelas.kelas_id', '=', 'kelas.id')
             ->where('join_kelas.user_id', auth()->user()->id)
+            ->where('join_kelas.status', '=', 'done')
             ->get();
 
         return view('dashboard.index', compact('data'));
