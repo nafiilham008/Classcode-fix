@@ -40,6 +40,52 @@ class UserController extends Controller
         return view('backend.user.index', compact('data'));
     }
 
+    public function settingMentor()
+    {
+        $data = User::find(auth()->user()->id);
+
+        return view('backend.user.setting.index', compact('data'));
+    }
+
+    public function editMentor($id)
+    {
+        $data = User::find($id);
+        return view('backend.user.edit', compact('data'));
+    }
+
+    public function updateMentor(Request $request, $id)
+    {
+        $data = User::find($id);
+
+        // Jika tidak ganti password
+        if ($request->password == '') {
+            $request->validate([
+                'name' => 'required',
+                'alamat' => 'required'
+            ]);
+
+            $data->update([
+                'username' => $request->name,
+                'alamat' => $request->alamat,
+            ]);
+            return redirect()->back()->with('success','Profile berhasil diupdate');
+        } else {
+            # jika ada maka
+            $request->validate([
+                'name' => 'required',
+                'alamat' => 'required',
+                'password' => 'required|string|min:8|confirmed'
+            ]);
+
+            $data->update([
+                'username' => $request->name,
+                'alamat' => $request->alamat,
+                'password' => Hash::make($data['password']),
+            ]);
+            return redirect()->back()->with('success','Profile berhasil diupdate');
+        }
+    }
+
     public function checkId($id)
     {
         return User::where('id', $id)->first();
