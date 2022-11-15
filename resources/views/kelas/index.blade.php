@@ -2,13 +2,123 @@
 
 @section('content')
     <section class="catalog">
-        <div class="title-kelas text-center mt-5" style="padding-top: 100px;">
-
-            <h2 class="poppins-bold">
+            <h2 class="font-vietnam font-bold text-center py-20 text-[34px]">
                 Catalog Class
             </h2>
-
-        </div>
+            <div class="flex justify-center mb-14">
+                <div class="flex flex-wrap lg:gap-5">
+                    <div
+                        class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="bg-[#b9ebfc] rounded-t-lg">
+                            <a href="#">
+                                <img class="" src="../../assets/image/ui.png" alt="">
+                            </a>
+                        </div>
+                        <div class="py-5 px-4">
+                            <a href="#">
+                                <h5
+                                    class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                    UX Design Essetial</h5>
+                                    <h5
+                                    class="mb-2 text-base font-vietnam tracking-tight text-blue-900 dark:text-white">IDR 149.000</h5>
+                            </a>
+                            <div class="flex gap-3 items-center py-3">
+                                <iconify-icon icon="cil:clock" style="color: #219ebc;" width="24" height="24">
+                                </iconify-icon>
+                                <h3 class="text-sm font-vietnam text-[#219ebc]">Mentor</h3>
+                            </div>
+                            <div class="flex gap-3 items-center">
+                                <iconify-icon icon="ph:medal-light" style="color: #219ebc;" width="24"
+                                    height="24"></iconify-icon>
+                                <h3 class="text-sm font-vietnam text-[#219ebc]">Sertifikat</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="bg-[#b9ebfc] rounded-t-lg">
+                            <a href="#">
+                                <img class="" src="../../assets/image/ui.png" alt="">
+                            </a>
+                        </div>
+                        <div class="py-5 px-4">
+                            <a href="#">
+                                <h5
+                                    class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                    UX Design Essetial</h5>
+                                    <h5
+                                    class="mb-2 text-base font-vietnam tracking-tight text-blue-900 dark:text-white">IDR 149.000</h5>
+                            </a>
+                            <div class="flex gap-3 items-center py-3">
+                                <iconify-icon icon="cil:clock" style="color: #219ebc;" width="24" height="24">
+                                </iconify-icon>
+                                <h3 class="text-sm font-vietnam text-[#219ebc]">Mentor</h3>
+                            </div>
+                            <div class="flex gap-3 items-center">
+                                <iconify-icon icon="ph:medal-light" style="color: #219ebc;" width="24"
+                                    height="24"></iconify-icon>
+                                <h3 class="text-sm font-vietnam text-[#219ebc]">Sertifikat</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="bg-[#b9ebfc] rounded-t-lg">
+                            <a href="#">
+                                <img class="" src="../../assets/image/ui.png" alt="">
+                            </a>
+                        </div>
+                        <div class="py-5 px-4">
+                            <a href="#">
+                                <h5
+                                    class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                    UX Design Essetial</h5>
+                                    <h5
+                                    class="mb-2 text-base font-vietnam tracking-tight text-blue-900 dark:text-white">IDR 149.000</h5>
+                            </a>
+                            <div class="flex gap-3 items-center py-3">
+                                <iconify-icon icon="cil:clock" style="color: #219ebc;" width="24" height="24">
+                                </iconify-icon>
+                                <h3 class="text-sm font-vietnam text-[#219ebc]">Mentor</h3>
+                            </div>
+                            <div class="flex gap-3 items-center">
+                                <iconify-icon icon="ph:medal-light" style="color: #219ebc;" width="24"
+                                    height="24"></iconify-icon>
+                                <h3 class="text-sm font-vietnam text-[#219ebc]">Sertifikat</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="bg-[#b9ebfc] rounded-t-lg">
+                            <a href="#">
+                                <img class="" src="../../assets/image/ui.png" alt="">
+                            </a>
+                        </div>
+                        <div class="py-5 px-4">
+                            <a href="#">
+                                <h5
+                                    class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                    UX Design Essetial</h5>
+                                    <h5
+                                    class="mb-2 text-base font-vietnam tracking-tight text-blue-900 dark:text-white">IDR 149.000</h5>
+                            </a>
+                            <div class="flex gap-3 items-center py-3">
+                                <iconify-icon icon="cil:clock" style="color: #219ebc;" width="24" height="24">
+                                </iconify-icon>
+                                <h3 class="text-sm font-vietnam text-[#219ebc]">Mentor</h3>
+                            </div>
+                            <div class="flex gap-3 items-center">
+                                <iconify-icon icon="ph:medal-light" style="color: #219ebc;" width="24"
+                                    height="24"></iconify-icon>
+                                <h3 class="text-sm font-vietnam text-[#219ebc]">Sertifikat</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        
         <div class="row mylist">
             @foreach ($data as $kelas)
                 <div class="col-md-4 mt-2 mb-5">
