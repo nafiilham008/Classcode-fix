@@ -49,27 +49,51 @@
                                 @php
                                     $i = 1;
                                 @endphp
-                                @foreach ($data as $kelas)
-                                    <tr>
-                                        <th scope="row">{{ $i++ }}</th>
-                                        <td>{{ $kelas->url_video }}</td>
-                                        <td>{{ $kelas->title }}</td>
-                                        <td>{{ $kelas->id_user }}</td>
-                                        <td>{{ $kelas->harga }}</td>
+                                @role('admin')
+                                    @foreach ($data as $kelas)
+                                        <tr>
+                                            <th scope="row">{{ $i++ }}</th>
+                                            <td>{{ $kelas->url_video }}</td>
+                                            <td>{{ $kelas->title }}</td>
+                                            <td>{{ $kelas->id_user }}</td>
+                                            <td>{{ $kelas->harga }}</td>
 
-                                        <td><img src="{{ asset('images_kelas/' . $kelas->image) }}" alt="" width="50px"
-                                                height="50px"></td>
+                                            <td><img src="{{ asset('images_kelas/' . $kelas->image) }}" alt=""
+                                                    width="50px" height="50px"></td>
 
-                                        <th>
-                                            <a href="{{ route('admin.kelas.edit', $kelas->id) }}"
-                                                class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ route('admin.kelas.hapus', $kelas->id) }}"
-                                                class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
-                                            <a href="{{ route('admin.masterkelas.index', $kelas->slug_url) }}"
-                                                class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i></a>
-                                        </th>
-                                    </tr>
-                                @endforeach
+                                            <th>
+                                                <a href="{{ route('admin.kelas.edit', $kelas->id) }}"
+                                                    class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('admin.kelas.hapus', $kelas->id) }}"
+                                                    class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                <a href="{{ route('admin.masterkelas.index', $kelas->slug_url) }}"
+                                                    class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i></a>
+                                            </th>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    @foreach ($dataMentor as $kelas)
+                                        <tr>
+                                            <th scope="row">{{ $i++ }}</th>
+                                            <td>{{ $kelas->url_video }}</td>
+                                            <td>{{ $kelas->title }}</td>
+                                            <td>{{ $kelas->id_user }}</td>
+                                            <td>{{ $kelas->harga }}</td>
+
+                                            <td><img src="{{ asset('images_kelas/' . $kelas->image) }}" alt=""
+                                                    width="50px" height="50px"></td>
+
+                                            <th>
+                                                <a href="{{ route('admin.kelas.edit', $kelas->id) }}"
+                                                    class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('admin.kelas.hapus', $kelas->id) }}"
+                                                    class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                <a href="{{ route('admin.masterkelas.index', $kelas->slug_url) }}"
+                                                    class="btn btn-primary btn-sm"><i class="fas fa-plus-circle"></i></a>
+                                            </th>
+                                        </tr>
+                                    @endforeach
+                                @endrole
                             </tbody>
                         </table>
                     </div>

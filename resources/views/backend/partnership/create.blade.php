@@ -1,7 +1,7 @@
 @extends('layouts.backend.master')
 
 @section('title')
-    Tambah Pembayaran
+    Tambah Kerjasama
 @endsection
 
 @section('content')
@@ -31,25 +31,17 @@
 
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form action="{{ route('admin.payment.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.partner.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group popppins-bold">
-                        <label for="exampleInputEmail1">Nama Bank / E-Wallet</label>
+                        <label for="exampleInputEmail1">Nama Partner</label>
                         <input name="name" type="text" class="form-control popppins-light">
                     </div>
-                    <div class="form-group popppins-bold">
-                        <label for="exampleInputPassword1">Nomor Rekening</label>
-                        <input name="nomer" type="number" class="form-control popppins-light">
+                    <div class="custom-file mt-2">
+                        <input name="image" type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile popppins-bold">Image</label>
                     </div>
-                    <div class="custom-file popppins-bold">
-                        <input name="logo" type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Logo</label>
-                    </div>
-                    <div class="form-group mt-3 popppins-bold">
-                        <label for="exampleInputEmail1">Atas Nama</label>
-                        <input name="atas_nama" type="text" class="form-control popppins-light">
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-4 popppins-bold btn-block btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-4 btn-block btn-lg poppins-bold">Submit</button>
                 </form>
             </div>
         </div>
@@ -57,4 +49,17 @@
     </div>
 @endsection
 
+@section('css-tambahan')
+    {{-- SUMMERNOTE --}}
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+@endsection
 
+@section('js-tambahan')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote();
+        });
+    </script>
+@endsection

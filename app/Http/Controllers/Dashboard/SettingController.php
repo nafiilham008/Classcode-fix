@@ -84,7 +84,7 @@ class SettingController extends Controller
             ]);
 
             $data->update([
-                'name' => $request->name,
+                'name' => $request->username,
                 'alamat' => $request->alamat,
             ]);
             return redirect()->back()->with('success','Profile berhasil diupdate');
@@ -97,7 +97,7 @@ class SettingController extends Controller
             ]);
 
             $data->update([
-                'name' => $request->name,
+                'name' => $request->username,
                 'alamat' => $request->alamat,
                 'password' => Hash::make($data['password']),
             ]);

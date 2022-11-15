@@ -18,6 +18,13 @@
                 </button>
             </div>
         @endif
+        @if (Session::has('errors'))
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}<br />
+                @endforeach
+            </div>
+        @endif
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">

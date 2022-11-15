@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJoinKelasTable extends Migration
+class CreatePartnershipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateJoinKelasTable extends Migration
      */
     public function up()
     {
-        Schema::create('join_kelas', function (Blueprint $table) {
+        Schema::create('partnerships', function (Blueprint $table) {
             $table->id();
-            $table->integer('kelas_id');
-            $table->integer('user_id');
-            $table->integer('checkout_id');
-            $table->enum('status',['done','pending'])->nullable();
+            $table->string('name');
+            $table->string('logo');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateJoinKelasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('join_kelas');
+        Schema::dropIfExists('partnerships');
     }
 }

@@ -34,22 +34,16 @@
                 <h6 class="m-0 font-weight-bold text-primary">Edit User : {{ $data->username }}</h6>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.user.update', $data->id) }}" method="POST">
+                <form action="{{ route('admin.user.update.role', $data->id) }}" method="POST">
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" name="email" id="email"
-                            value="{{ $data->email }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="fullname">Full Name</label>
-                        <input type="text" class="form-control" name="name" id="fullname"
-                            value="{{ $data->username }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="fullname">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" value="">
+                        <label>Pilih Role</label>
+                        <select class="form-control" name="role">
+                            @foreach ($dataRole as $item)
+                                <option>{{ $item->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

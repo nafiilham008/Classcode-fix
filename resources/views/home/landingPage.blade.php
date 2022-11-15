@@ -37,6 +37,7 @@
 </head>
 
 <body>
+
     <div class="sticky top-0 z-20">
         @include('layouts.backend.menu2')
     </div>

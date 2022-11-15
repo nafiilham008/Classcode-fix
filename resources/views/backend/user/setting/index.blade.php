@@ -1,7 +1,7 @@
-@extends('layouts.dashboard.master')
+@extends('layouts.backend.master')
 
 @section('title')
-    Dashboard User
+    Dashboard mentor
 @endsection
 
 @section('content')
@@ -28,7 +28,7 @@
             <h6 class="m-0 font-weight-bold text-primary poppins-bold">Nama User : {{ $data->username }}</h6>
         </div>
         <div class="card-body">
-            <form action="{{ route('dashboard.setting.update', $data->id) }}" method="POST">
+            <form action="{{ route('admin.user.setting.update.mentor', $data->id) }}" method="POST">
                 @csrf
                 @method("PATCH")
                 <div class="form-group poppins-bold">

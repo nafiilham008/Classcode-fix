@@ -25,9 +25,9 @@
                         </p>
                         <p class="card-title font-italic">Dapat diakses selamanya</p>
                     </div>
-                    <div class="card-footer-class">
+                    <div class="card-footer-class">      
                         <a class="btn btn-success btn-lg btn-block poppins-bold" type="button"
-                            style="border-radius: 0 0 20px 20px;" href="{{ route('checkout.index', $data->slug_url) }}">
+                            style="border-radius: 0 0 20px 20px;" @role('user') href="{{ route('checkout.index', $data->slug_url) }} @endrole">
                             Gabung Kelas
                         </a>
                     </div>
@@ -109,17 +109,17 @@
             on('.js-pause', 'click', () => {
                 player.pause();
             });
-
+            
             // Stop
             on('.js-stop', 'click', () => {
                 player.stop();
             });
-
+            
             // Rewind
             on('.js-rewind', 'click', () => {
                 player.rewind();
             });
-
+            
             // Forward
             on('.js-forward', 'click', () => {
                 player.forward();

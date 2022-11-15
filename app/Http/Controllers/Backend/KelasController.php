@@ -5,14 +5,30 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Kelas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class KelasController extends Controller
 {
+    
+
+    public function kelasMentor()
+    {
+        // return Kelas::with('users')->where('id_user', Auth()->user()->username)->get();
+        return DB::table('kelas')
+            ->select('users.*', 'kelas.*')
+            // ->join('kelas', 'master_kelas.kelas_id', '=', 'kelas.id')
+            ->join('users', 'kelas.id_user', '=', 'users.username')
+            ->where(['users.id' => Auth()->user()->id])
+            ->get();
+    }
+
     public function index()
     {
         $data = Kelas::all();
-        return view('backend.kelas.index', compact('data'));
+        $dataMentor = $this->kelasMentor();
+        // dd($data);
+        return view('backend.kelas.index', compact(['data', 'dataMentor']));
     }
 
     public function create()
@@ -29,9 +45,9 @@ class KelasController extends Controller
     public function hapus($id)
     {
         $data = Kelas::find($id);
-        // $image = public_path('images_kelas/' . $data->image);
-        // unlink($image);
         // dd($image);
+        $image = public_path('images_kelas/' . $data->image);
+        unlink($image);
         $data->delete();
         return redirect()->route('admin.kelas')->with('success', 'Kelas Berhasil dihapus');
     }
@@ -60,8 +76,6 @@ class KelasController extends Controller
             ]);
         } else {
             # jika ada maka
-            // $image = public_path('images_kelas/' . $data->image);
-            // unlink($image);
 
             $request->validate([
                 'title' => 'required',
@@ -71,6 +85,8 @@ class KelasController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
 
+            $image = public_path('images_kelas/' . $data->image);
+            unlink($image);
             $imageName = time() . '.' . $request->image->extension();
 
             $data->update([
@@ -95,7 +111,7 @@ class KelasController extends Controller
             'title' => 'required',
             'description' => 'required',
             'harga' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $imageName = time() . '.' . $request->image->extension();
@@ -107,7 +123,7 @@ class KelasController extends Controller
             'description' => $request->description,
             'harga' => $request->harga,
             'image' => $imageName,
-            'id_user' => auth()->user()->name
+            'id_user' => auth()->user()->username
         ]);
 
         $request->image->move(public_path('images_kelas/'), $imageName);

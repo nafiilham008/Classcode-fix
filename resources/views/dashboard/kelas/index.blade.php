@@ -9,7 +9,7 @@
         <div class="col-4">
             <p class="poppins-bold">
                 <i class="fas fa-arrow-left mr-4"></i>
-                <a href="#">Kembali ke Dashboard </a>
+                <a href="{{ route('dashboard.index') }}">Kembali ke Dashboard </a>
             </p>
             @foreach ($materi as $master)
                 <a class="btn btn-materi text-white poppins-light btn-lg btn-block my-4"

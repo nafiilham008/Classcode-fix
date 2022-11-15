@@ -34,17 +34,6 @@
             <span>Pengaturan</span></a>
     </li>
 
-    <!-- Nav Item - Keluar -->
-    <li class="nav-item poppins-bold">
-        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-            <i class="fas fa-fw fa-sign-out-alt"></i>
-            <span>Keluar</span>
-        </a>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
@@ -54,6 +43,17 @@
             <i class="fas fa-arrow-circle-left"></i>
             <span>Kembali Ke Home</span></a>
     </li>
+    <hr class="sidebar-divider d-none d-md-block">
+    <!-- Nav Item - Keluar -->
+    <li class="nav-item poppins-bold">
+        <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+            <i class="fas fa-fw fa-sign-out-alt"></i>
+            <span>Keluar</span>
+        </a>
+    </li>
 </ul>
-
-
