@@ -57,7 +57,7 @@
                                 <tr>
                                     <th scope="row">{{ $i++ }}</th>
                                     <td>{{ $item->title }}</td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->username }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>{{ $item->url_video }}</td>
                                     <td>{{ $item->slug_url }}</td>

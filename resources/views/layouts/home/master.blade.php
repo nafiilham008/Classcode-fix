@@ -81,7 +81,7 @@
                                         aria-haspopup="true" aria-expanded="false">
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        @role('admin')
+                                        @role('admin|mentor')
                                         <a class="dropdown-item poppins-light"
                                             href="{{ route('admin.index') }}">Dashboard</a>
                                         @endrole

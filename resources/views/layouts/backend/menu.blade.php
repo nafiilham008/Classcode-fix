@@ -22,39 +22,66 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading poppins-bold">
-        Admin Setting
-    </div>
+    @role('admin')
+        <div class="sidebar-heading poppins-bold">
+            Admin Setting
+        </div>
 
-    <!-- Nav Item - user -->
-    <li class="nav-item poppins-light">
-        <a class="nav-link" href="{{ route('admin.user') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>User</span></a>
-    </li>
+
+        <!-- Nav Item - user -->
+        <li class="nav-item poppins-light">
+            <a class="nav-link" href="{{ route('admin.user') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>User</span></a>
+        </li>
+    @endrole
 
     <!-- Nav Item - kelas -->
-    <li class="nav-item poppins-light">
-        <a class="nav-link" href="{{ route('admin.kelas') }}">
-            <i class="fas fa-fw fa-paste"></i>
-            <span>Kelas</span></a>
-    </li>
+    @role('admin|mentor')
+        <li class="nav-item poppins-light">
+            <a class="nav-link" href="{{ route('admin.kelas') }}">
+                <i class="fas fa-fw fa-paste"></i>
+                <span>Kelas</span></a>
+        </li>
+    @endrole
 
     <!-- Nav Item - kupon -->
-    <li class="nav-item poppins-light">
-        <a class="nav-link" href="{{ route('admin.promo') }}">
-            <i class="fas fa-fw fa-percent"></i>
-            <span>Kupon</span></a>
-    </li>
+    @role('admin')
+        <li class="nav-item poppins-light">
+            <a class="nav-link" href="{{ route('admin.promo') }}">
+                <i class="fas fa-fw fa-percent"></i>
+                <span>Kupon</span></a>
+        </li>
 
-    <!-- Nav Item - pembayaran -->
-    <li class="nav-item poppins-light">
-        <a class="nav-link" href="{{ route('admin.payment') }}">
-            <i class="fas fa-fw fa-dollar-sign"></i>
-            <span>Metode Pembayaran</span></a>
-    </li>
+        <!-- Nav Item - pembayaran -->
+        <li class="nav-item poppins-light">
+            <a class="nav-link" href="{{ route('admin.payment') }}">
+                <i class="fas fa-fw fa-dollar-sign"></i>
+                <span>Metode Pembayaran</span></a>
+        </li>
+    @endrole
+
+    @role('mentor')
+        <!-- Nav Item - Pengaturan -->
+        <li class="nav-item poppins-bold">
+            <a class="nav-link" href="{{ route('admin.user.setting.mentor') }}">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Pengaturan</span></a>
+        </li>
+    @endrole
 
     <!-- Divider -->
+    @role('admin')
+    <hr class="sidebar-divider d-none d-md-block">
+    <div class="sidebar-heading poppins-bold">
+        Status
+    </div>
+    <li class="nav-item poppins-light">
+        <a class="nav-link" href="{{ route('admin.pending.kelas') }}">
+            <i class="fas fa-th"></i>
+            <span>Pending kelas</span></a>
+    </li>
+    @endrole
     <hr class="sidebar-divider d-none d-md-block">
 
     <li class="nav-item poppins-bold">
@@ -69,7 +96,8 @@
 
     <!-- Sidebar Toggler (Sidebar) -->
     <li class="nav-item poppins-bold">
-        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+        <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
@@ -82,5 +110,4 @@
 </ul>
 
 @section('css-tambahan')
-
 @endsection
