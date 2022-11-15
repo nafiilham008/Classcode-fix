@@ -5,14 +5,30 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Backend\Kelas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class KelasController extends Controller
 {
+    
+
+    public function kelasMentor()
+    {
+        // return Kelas::with('users')->where('id_user', Auth()->user()->username)->get();
+        return DB::table('kelas')
+            ->select('users.*', 'kelas.*')
+            // ->join('kelas', 'master_kelas.kelas_id', '=', 'kelas.id')
+            ->join('users', 'kelas.id_user', '=', 'users.username')
+            ->where(['users.id' => Auth()->user()->id])
+            ->get();
+    }
+
     public function index()
     {
         $data = Kelas::all();
-        return view('backend.kelas.index', compact('data'));
+        $dataMentor = $this->kelasMentor();
+        // dd($data);
+        return view('backend.kelas.index', compact(['data', 'dataMentor']));
     }
 
     public function create()
@@ -60,7 +76,7 @@ class KelasController extends Controller
             ]);
         } else {
             # jika ada maka
-            
+
             $request->validate([
                 'title' => 'required',
                 'url_video' => 'required',
@@ -68,7 +84,7 @@ class KelasController extends Controller
                 'harga' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
-            
+
             $image = public_path('images_kelas/' . $data->image);
             unlink($image);
             $imageName = time() . '.' . $request->image->extension();

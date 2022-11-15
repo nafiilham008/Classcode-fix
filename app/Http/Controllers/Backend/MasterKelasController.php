@@ -24,7 +24,7 @@ class MasterKelasController extends Controller
         } else {
             # Jika kelas ada
             $data = DB::table('master_kelas')
-                ->select('users.name', 'kelas.title', 'master_kelas.*')
+                ->select('users.username', 'kelas.title', 'master_kelas.*')
                 ->join('kelas', 'master_kelas.kelas_id', '=', 'kelas.id')
                 ->join('users', 'master_kelas.user_id', '=', 'users.id')
                 ->where(['master_kelas.kelas_id' => $kelas->id])
