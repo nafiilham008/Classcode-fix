@@ -17,6 +17,8 @@ class CreateJoinKelasTable extends Migration
             $table->id();
             $table->integer('kelas_id');
             $table->integer('user_id');
+            $table->integer('checkout_id');
+            $table->enum('status',['done','pending'])->nullable();
             $table->timestamps();
         });
     }

@@ -21,6 +21,7 @@ class CreateCheckoutsTable extends Migration
             $table->string('kode_promo')->nullable();
             $table->integer('diskon')->nullable();
             $table->integer('payment_id')->nullable();
+            $table->string('image_trx')->nullable();
             $table->enum('status',['success','failed'])->nullable();
             
             $table->timestamps();
