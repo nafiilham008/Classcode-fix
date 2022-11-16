@@ -1,59 +1,298 @@
-<ul class="navbar-nav bg-menu-dashboard sidebar sidebar-dark accordion" id="accordionSidebar">
-
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard.index') }}">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+<div class="main-sidebar sidebar-style-3">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            {{-- <a href="index.html">Stisla</a> --}}
+            <img src="../../assets/image/logo.png" class="relative" alt="">
         </div>
-        <div class="sidebar-brand-text mx-3 poppins-bold">Dashboard User</div>
-    </a>
+        {{-- <div class="sidebar-brand sidebar-brand-sm">
+            <a href="index.html">St</a>
+        </div> --}}
+        <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="nav-item dropdown {{ Route::currentRouteNamed('dashboard.index') ? 'active' : '' }}">
+                <a href="{{ route('dashboard.index') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            <li class="menu-header">Starter</li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Layout</span></a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a class="nav-link" href="">Default Layout</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href="">Transparent Sidebar</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href="">Top Navigation</a>
+                    </li>
+                </ul>
+            </li>
+            {{-- <li class="active' : '' }}">
+                <a class="nav-link" href=" url('blank-page') }}"><i class="far fa-square"></i> <span>Blank
+                        Page</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
+                <ul class="dropdown-menu">
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-alert') }}">Alert</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-badge') }}">Badge</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-breadcrumb') }}">Breadcrumb</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-buttons') }}">Buttons</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-card') }}">Card</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-carousel') }}">Carousel</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-collapse') }}">Collapse</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-dropdown') }}">Dropdown</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-form') }}">Form</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-list-group') }}">List Group</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-media-object') }}">Media Object</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-modal') }}">Modal</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-nav') }}">Nav</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-navbar') }}">Navbar</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-pagination') }}">Pagination</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-popover') }}">Popover</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-progress') }}">Progress</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-table') }}">Table</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-tooltip') }}">Tooltip</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('bootstrap-typography') }}">Typography</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-header">Stisla</li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i>
+                    <span>Components</span></a>
+                <ul class="dropdown-menu">
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('components-article') }}">Article</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link beep beep-sidebar" href=" url('components-avatar') }}">Avatar</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('components-chat-box') }}">Chat Box</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link beep beep-sidebar" href=" url('components-empty-state') }}">Empty
+                            State</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('components-gallery') }}">Gallery</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link beep beep-sidebar" href=" url('components-hero') }}">Hero</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('components-multiple-upload') }}">Multiple Upload</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link beep beep-sidebar" href=" url('components-pricing') }}">Pricing</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('components-statistic') }}">Statistic</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('components-tab') }}">Tab</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('components-table') }}">Table</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('components-user') }}">User</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link beep beep-sidebar" href=" url('components-wizard') }}">Wizard</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
+                    <span>Forms</span></a>
+                <ul class="dropdown-menu">
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('forms-advanced-form') }}">Advanced Form</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('forms-editor') }}">Editor</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('forms-validation') }}">Validation</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>Modules</span></a>
+                <ul class="dropdown-menu">
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('modules-calendar') }}">Calendar</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('modules-chartjs') }}">ChartJS</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('modules-datatables') }}">DataTables</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('modules-flag') }}">Flag</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('modules-font-awesome') }}">Font Awesome</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('modules-ion-icons') }}">Ion Icons</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('modules-owl-carousel') }}">Owl Carousel</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('modules-sparkline') }}">Sparkline</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('modules-sweet-alert') }}">Sweet Alert</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('modules-toastr') }}">Toastr</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('modules-vector-map') }}">Vector Map</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('modules-weather-icon') }}">Weather Icon</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="menu-header">Pages</li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Auth</span></a>
+                <ul class="dropdown-menu">
+                    <li class=" ? 'active' : '' }}">
+                        <a href=" url('auth-forgot-password') }}">Forgot Password</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a href=" url('auth-login') }}">Login</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="beep beep-sidebar" href=" url('auth-login2') }}">Login 2</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a href=" url('auth-register') }}">Register</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a href=" url('auth-reset-password') }}">Reset Password</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-exclamation"></i>
+                    <span>Errors</span></a>
+                <ul class="dropdown-menu">
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('error-403') }}">403</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('error-404') }}">404</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('error-500') }}">500</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('error-503') }}">503</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-bicycle"></i>
+                    <span>Features</span></a>
+                <ul class="dropdown-menu">
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('features-activities') }}">Activities</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('features-post-create') }}">Post Create</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('features-post') }}">Posts</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('features-profile') }}">Profile</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('features-settings') }}">Settings</a>
+                    </li>
+                    <li class=" ? 'active' : '' }}">
+                        <a class="nav-link" href=" url('features-setting-detail') }}">Setting Detail</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('features-tickets') }}">Tickets</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-ellipsis-h"></i>
+                    <span>Utilities</span></a>
+                <ul class="dropdown-menu">
+                    <li class="active' : '' }}">
+                        <a href=" url('utilities-contact') }}">Contact</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a class="nav-link" href=" url('utilities-invoice') }}">Invoice</a>
+                    </li>
+                    <li class="active' : '' }}">
+                        <a href=" url('utilities-subscribe') }}">Subscribe</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="{{ Request::}">
+                <a class="nav-link" href=" url('credits') }}"><i class="fas fa-pencil-ruler">
+                    </i> <span>Credits</span>
+                </a>
+            </li> --}}
+        </ul>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item poppins-bold">
-        <a class="nav-link" href="{{ route('dashboard.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading poppins-bold">
-        Setting
-    </div>
-
-
-    <!-- Nav Item - Pengaturan -->
-    <li class="nav-item poppins-bold">
-        <a class="nav-link" href="{{ route('dashboard.setting.index') }}">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Pengaturan</span></a>
-    </li>
-
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <li class="nav-item poppins-bold">
-        <a class="nav-link" href="{{ route('index') }}">
-            <i class="fas fa-arrow-circle-left"></i>
-            <span>Kembali Ke Home</span></a>
-    </li>
-    <hr class="sidebar-divider d-none d-md-block">
-    <!-- Nav Item - Keluar -->
-    <li class="nav-item poppins-bold">
-        <a class="nav-link" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-            <i class="fas fa-fw fa-sign-out-alt"></i>
-            <span>Keluar</span>
-        </a>
-    </li>
-</ul>
+        <div class="hide-sidebar-mini mt-4 mb-4 p-3">
+            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                <i class="fas fa-rocket"></i> Documentation
+            </a>
+        </div>
+    </aside>
+</div>

@@ -48,6 +48,7 @@
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
+
                     </button>
 
                     <!-- Topbar Search -->
@@ -73,7 +74,14 @@
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small poppins-light">
                                     {{ Auth::user()->username }}
                                 </span>
-                                <i class="fas fa-user"></i>
+                                {{-- <img src="../../assets/image/logo.png" class="relative" alt=""> --}}
+                                @if (!Auth()->user()->image)
+                                    <i class="fas fa-user"></i>
+                                @else
+                                    <img src="{{ asset('images_profil/' . Auth::user()->image) }}" alt="profil"
+                                        width="50px">
+                                @endif
+
                             </div>
                         </li>
                     </ul>

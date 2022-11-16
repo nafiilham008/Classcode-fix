@@ -16,38 +16,45 @@
     @endif
 
     @if (Session::has('errors'))
-            <div class="alert alert-danger">
-                @foreach ($errors->all() as $error)
-                    {{ $error }}<br />
-                @endforeach
-            </div>
-        @endif
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br />
+            @endforeach
+        </div>
+    @endif
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary poppins-bold">Nama User : {{ $data->username }}</h6>
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.user.setting.update.mentor', $data->id) }}" method="POST">
+            <form action="{{ route('admin.user.setting.update.mentor', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method("PATCH")
+                @method('PATCH')
                 <div class="form-group poppins-bold">
                     <label for="email">Full Name</label>
                     <input type="text" class="form-control poppins-light" name="name" value="{{ $data->username }}">
                 </div>
                 <div class="form-group poppins-bold">
                     <label for="exampleFormControlTextarea1">Alamat</label>
-                    <textarea class="form-control poppins-light" id="exampleFormControlTextarea1" rows="3" name="alamat" placeholder="Fill this area">{!! $data->alamat !!}</textarea>
-                  </div>
+                    <textarea class="form-control poppins-light" id="exampleFormControlTextarea1" rows="3" name="alamat"
+                        placeholder="Fill this area">{!! $data->alamat !!}</textarea>
+                </div>
                 <div class="form-group poppins-bold">
                     <label for="email">Password</label>
-                    <input type="password" class="form-control poppins-light" name="password" placeholder="Input your password">
+                    <input type="password" class="form-control poppins-light" name="password"
+                        placeholder="Input your password">
                 </div>
                 <div class="form-group poppins-bold">
                     <label for="email">Repeat Password</label>
-                    <input type="password" class="form-control poppins-light" name="password_confirmation" placeholder="Repeat your password">
+                    <input type="password" class="form-control poppins-light" name="password_confirmation"
+                        placeholder="Repeat your password">
                 </div>
-                
+                <div class="custom-file">
+                    <input name="image" type="file" class="custom-file-input">
+                    <label class="custom-file-label popppins-bold" for="image" value="{{ $data->image }}">Image</label>
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-lg btn-block mt-4 poppins-bold">Submit</button>
             </form>
         </div>

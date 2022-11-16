@@ -1,5 +1,11 @@
 /node_modules
 /public/hot
+/public/images_kelas
+/public/images_kupon
+/public/images_partner
+/public/images_trx
+/public/logo_bank
+/public/images_profil
 /public/storage
 /storage/*.key
 /vendor

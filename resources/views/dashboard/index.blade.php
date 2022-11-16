@@ -5,59 +5,80 @@
 @endsection
 
 @section('content')
-
-    <div class="d-flex justify-align-center">
-        <div class="mx-auto mt-3 mb-5">
-            <h2 class="poppins-bold">
-                My Class
-            </h2>
-        </div>
-    </div>
-    <div class="row">
-        @foreach ($data as $item)
-
-            <div class="d-flex justify-content-between mb-5 mx-auto">
-                <a class="card kartuku titleku" style="border-radius: 20px; width:400px; height: 200px"
-                    href="{{ route('dashboard.kelas.index', $item->slug_url) }}">
-                    <div class="row">
-                        <div class="col-6">
-                            <img class="card-img-top ml-4 mt-4" src="{{ asset('images_kelas/' . $item->image) }}"
-                                alt="Course" style="width: 180px; height: 150px; border-radius: 20px">
-
-                        </div>
-                        <div class="col-6">
-                            <div class="card-body" style="text-align: left;">
-                                <p class="card-title poppins-bold">{{ $item->title }}</p>
-                                <hr style="width:100%;text-align:left;margin-left:0;color: black;background-color: black;">
-                            </div>
-                            <div class="card-body" style="text-align: left; ">
-                                <p class="card-text mentor poppins-bold">
-                                    {{ $item->id_user }}
-                                </p>
-                                <p class="card-text">
-                                    Mentor
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </a>
+    <div class="main-content" style="min-height: 534px;">
+        <section class="section">
+            <div class="section-header">
+                <h1>Dashboard</h1>
             </div>
-            {{-- <div class="col"></div> --}}
 
-        @endforeach
-
+            {{-- UNTUK DASHBOARD ADMIN DAN MENTOR --}}
+            {{-- <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Admin</h4>
+                            </div>
+                            <div class="card-body">
+                                10
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-danger">
+                            <i class="far fa-newspaper"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>News</h4>
+                            </div>
+                            <div class="card-body">
+                                42
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="far fa-file"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Reports</h4>
+                            </div>
+                            <div class="card-body">
+                                1,201
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-success">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Online Users</h4>
+                            </div>
+                            <div class="card-body">
+                                47
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+        </section>
     </div>
-
-    {{-- @foreach ($data as $kelas)
-        @endforeach --}}
-
-
-
 @endsection
 
-@section('css-tambahan')
+{{-- @section('css-tambahan')
     <style>
         a:link {
             text-decoration: none;
@@ -76,4 +97,4 @@
         }
 
     </style>
-@endsection
+@endsection --}}
