@@ -1,115 +1,60 @@
-<ul class="navbar-nav bg-menu-dashboard sidebar sidebar-dark accordion" id="accordionSidebar">
-
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.index') }}">
-        <div class="sidebar-brand-icon">
-            {{-- <i class="fas fa-laugh-wink"></i> --}}
-            <img src="../../assets/image/logo.png" class="relative" alt="">
-
+<div class="main-sidebar sidebar-style-3">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            {{-- <a href="index.html">Stisla</a> --}}
+            <a href="{{ route('index') }}">
+                <img src="../../assets/image/logo.png" class="relative" alt="">
+            </a>
         </div>
-        {{-- <div class="sidebar-brand-text mx-3 poppins-bold">Admin Classcode</div> --}}
-    </a>
+        {{-- <div class="sidebar-brand sidebar-brand-sm">
+            <a href="index.html">St</a>
+        </div> --}}
+        <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.index') ? 'active' : '' }}">
+                <a href="{{ route('admin.index') }}" class="nav-link"><i
+                        class="fas fa-columns"></i><span>Dashboard</span></a>
+            </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+            @role('admin')
+                <li class="menu-header">Akses Admin</li>
+                <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.user') ? 'active' : '' }}">
+                    <a href="{{ route('admin.user') }}" class="nav-link"><i
+                            class="fas fa-users"></i><span>Pelanggan</span></a>
+                </li>
+            @endrole
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item poppins-light">
-        <a class="nav-link" href="{{ route('admin.index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
+            @role('admin|mentor')
+                <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.kelas') ? 'active' : '' }}">
+                    <a href="{{ route('admin.kelas') }}" class="nav-link"><i class="fas fa-file"></i><span>Kelas</span></a>
+                </li>
+            @endrole
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+            @role('admin')
+                <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.promo') ? 'active' : '' }}">
+                    <a href="{{ route('admin.promo') }}" class="nav-link"><i class="fas fa-tags"></i><span>Kupon</span></a>
+                </li>
+                <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.payment') ? 'active' : '' }}">
+                    <a href="{{ route('admin.payment') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Metode
+                            Pembayaran</span></a>
+                </li>
+            @endrole
 
-    <!-- Heading -->
-    @role('admin')
-        <div class="sidebar-heading poppins-bold">
-            Admin Setting
-        </div>
+            @role('mentor')
+                <li class="menu-header">Pengaturan</li>
+                <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.user.setting.mentor') ? 'active' : '' }}">
+                    <a href="{{ route('admin.user.setting.mentor') }}" class="nav-link"><i
+                            class="fas fa-gear"></i><span>Pengaturan</span></a>
+                </li>
+            @endrole
 
+            @role('admin')
+            <li class="menu-header">Konfirmasi Pelanggan</li>
+                <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.pending.kelas') ? 'active' : '' }}">
+                    <a href="{{ route('admin.pending.kelas') }}" class="nav-link"><i
+                            class="fas fa-list-check"></i><span>Daftar Pending</span></a>
+                </li>
+            @endrole
 
-        <!-- Nav Item - user -->
-        <li class="nav-item poppins-light">
-            <a class="nav-link" href="{{ route('admin.user') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>User</span></a>
-        </li>
-    @endrole
-
-    <!-- Nav Item - kelas -->
-    @role('admin|mentor')
-        <li class="nav-item poppins-light">
-            <a class="nav-link" href="{{ route('admin.kelas') }}">
-                <i class="fas fa-fw fa-paste"></i>
-                <span>Kelas</span></a>
-        </li>
-    @endrole
-
-    <!-- Nav Item - kupon -->
-    @role('admin')
-        <li class="nav-item poppins-light">
-            <a class="nav-link" href="{{ route('admin.promo') }}">
-                <i class="fas fa-fw fa-percent"></i>
-                <span>Kupon</span></a>
-        </li>
-
-        <!-- Nav Item - pembayaran -->
-        <li class="nav-item poppins-light">
-            <a class="nav-link" href="{{ route('admin.payment') }}">
-                <i class="fas fa-fw fa-dollar-sign"></i>
-                <span>Metode Pembayaran</span></a>
-        </li>
-    @endrole
-
-    @role('mentor')
-        <!-- Nav Item - Pengaturan -->
-        <li class="nav-item poppins-bold">
-            <a class="nav-link" href="{{ route('admin.user.setting.mentor') }}">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Pengaturan</span></a>
-        </li>
-    @endrole
-
-    <!-- Divider -->
-    @role('admin')
-        <hr class="sidebar-divider d-none d-md-block">
-        <div class="sidebar-heading poppins-bold">
-            Status
-        </div>
-        <li class="nav-item poppins-light">
-            <a class="nav-link" href="{{ route('admin.pending.kelas') }}">
-                <i class="fas fa-th"></i>
-                <span>Pending kelas</span></a>
-        </li>
-    @endrole
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <li class="nav-item poppins-bold">
-        <a class="nav-link" href="{{ route('index') }}">
-            <i class="fas fa-arrow-circle-left"></i>
-            <span>Kembali Ke Home</span></a>
-    </li>
-
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <li class="nav-item poppins-bold">
-        <a class="nav-link" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-            <i class="fas fa-fw fa-sign-out-alt"></i>
-            <span>Keluar</span>
-        </a>
-    </li>
-
-</ul>
-
-@section('css-tambahan')
-@endsection
+    </aside>
+</div>

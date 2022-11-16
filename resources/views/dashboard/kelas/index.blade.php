@@ -1,27 +1,36 @@
 @extends('layouts.dashboard.master')
 
 @section('title')
-    Kelas
+    Kelasku
 @endsection
 
 @section('content')
-    <div class="row container-fluid mt-5">
-        <div class="col-4">
-            <p class="poppins-bold">
-                <i class="fas fa-arrow-left mr-4"></i>
-                <a href="{{ route('dashboard.index') }}">Kembali ke Dashboard </a>
-            </p>
-            @foreach ($materi as $master)
-                <a class="btn btn-materi text-white poppins-light btn-lg btn-block my-4"
-                    href="{{ route('dashboard.kelas.materi', ['slug_url' => $data->slug_url, 'slug_materi' => $master->slug_url]) }}">{{ $master->title }}</a>
-            @endforeach
-        </div>
-        <div class="col-8">
-            <p class="poppins-bold">Videos</p>
-            <div class="card" style="border-radius: 20px; width: 700px;">
-                <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="{{ $data->url_video }}"></div>
+    <div class="main-content" style="min-height: 534px;">
+        <section class="section">
+            <div class="section-header">
+                <h1>{{ $data->title }}</h1>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4">
+    
+                    <div class="list-group">
+                        @foreach ($materi as $master)
+                            <a href="{{ route('dashboard.kelas.materi', ['slug_url' => $data->slug_url, 'slug_materi' => $master->slug_url]) }}"
+                                class="list-group-item list-group-item-action ">
+                                {{ $master->title }}
+                            </a>
+                        @endforeach
+                    </div>
+    
+                </div>
+                <div class="col-12 col-md-8 col-lg-8">
+    
+                    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="{{ $data->url_video }}"></div>
+    
+                </div>
+
+            </div>
+        </section>
     </div>
 @endsection
 
@@ -43,9 +52,7 @@
         a:active {
             text-decoration: none;
         }
-
     </style>
-
 @endsection
 
 @section('js-tambahan')

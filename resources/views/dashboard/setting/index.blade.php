@@ -1,63 +1,81 @@
 @extends('layouts.dashboard.master')
 
 @section('title')
-    Dashboard User
+    Pengaturan
 @endsection
 
 @section('content')
 
-    @if ($pesan = Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Selamat !</strong> {{ $pesan }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-
-    @if (Session::has('errors'))
-        <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-                {{ $error }}<br />
-            @endforeach
-        </div>
-    @endif
-
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary poppins-bold">Nama User : {{ $data->username }}</h6>
-        </div>
-        <div class="card-body">
+    <div class="main-content" style="min-height: 534px;">
+        @if ($pesan = Session::get('success'))
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <strong>Selamat !</strong> {{ $pesan }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        @endif
+        @if (Session::has('errors'))
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br />
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+        <section class="section">
+            <div class="section-header">
+                <h1>Pengaturan</h1>
+            </div>
             <form action="{{ route('dashboard.setting.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
-                <div class="form-group poppins-bold">
-                    <label for="email">Full Name</label>
-                    <input type="text" class="form-control poppins-light" name="name" value="{{ $data->username }}">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Data Pelanggan</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <h6><label for="name">Nama Pelanggan</label></h6>
+                            <input type="text" class="form-control" name="name" value="{{ $data->username }}"
+                                placeholder="Silahkan isi nama anda">
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="alamat">Alamat</label></h6>
+                            <textarea class="form-control" name="alamat" placeholder="Silahkan isi alamat anda">{!! $data->alamat !!}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="inputPassword6">Kata Sandi</label></h6>
+                            <input type="password" id="inputPassword5" class="form-control"
+                                aria-describedby="passwordHelpBlock" name="password" placeholder="Minimal 8 karakter">
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                Silahkan isi jika ingin ubah kata sandi
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="inputPassword6">Konfirmasi Kata Sandi</label></h6>
+                            <input type="password" id="inputPassword5" class="form-control"
+                                aria-describedby="passwordHelpBlock" name="password_confirmation"
+                                placeholder="Minimal 8 karakter">
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="image">Foto Profil</label></h6>
+                            <input type="file" class="form-control" name="image" value="{{ $data->image }}">
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary mr-1 btn-block" type="submit">Submit</button>
+                    </div>
                 </div>
-                <div class="form-group poppins-bold">
-                    <label for="exampleFormControlTextarea1">Alamat</label>
-                    <textarea class="form-control poppins-light" id="exampleFormControlTextarea1" rows="3" name="alamat"
-                        placeholder="Fill this area">{!! $data->alamat !!}</textarea>
-                </div>
-                <div class="form-group poppins-bold">
-                    <label for="email">Password</label>
-                    <input type="password" class="form-control poppins-light" name="password"
-                        placeholder="Input your password">
-                </div>
-                <div class="form-group poppins-bold">
-                    <label for="email">Repeat Password</label>
-                    <input type="password" class="form-control poppins-light" name="password_confirmation"
-                        placeholder="Repeat your password">
-                </div>
-                <div class="custom-file">
-                    <input name="image" type="file" class="custom-file-input">
-                    <label class="custom-file-label popppins-bold" for="image" value="{{ $data->image }}">Image</label>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-lg btn-block mt-4 poppins-bold">Submit</button>
             </form>
-        </div>
+        </section>
     </div>
+
 
 @endsection
