@@ -15,16 +15,16 @@
                     <div
                         class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                         <div class="bg-[#b9ebfc] rounded-t-lg">
-                            <a href="#">
+                            
                                 <div class="bg-no-repeat bg-center bg-cover  w-[300px] h-48 rounded-t-lg"
                                     style="background-image: url('{{ asset('images_kupon/' . $promo->image) }}');">
                                 </div>
-                            </a>
+
                         </div>
                         <div class="py-5 px-4">
-                            <a href="#">
+                            
                                 <h5
-                                    class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                    class="mb-2 text-2xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
                                     {{ $promo->title }}</h5>
 
                                 <div class="flex gap-3 items-center py-3">
@@ -32,12 +32,17 @@
                                         height="30"></iconify-icon>
                                     <h3 class="text-4xl font-vietnam text-[#219ebc]">{{ $promo->diskon }}%</h3>
                                 </div>
+                                <div class="flex flex-wrap justify-between items-center">
+                                <h5
+                                class="mb-2 text-lg font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                Kode Promo :</h5>
+                                <h5
+                                class="mb-2 text-base font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                {{ $promo->kode_promo }}</h5>
+                            </div>
+                            
                         </div>
-                        <div class="flex">
-                            <button
-                                class="px-4 py-3 text-center rounded-b-xl text-white font-vietnam w-full bg-[#75B843]/80 hover:bg-[#F9AE55] detail"
-                                type="button" data-url="{{ route('ambil_kupon', $promo->id) }}">Ambil</button>
-                        </div>
+                        
                     </div>
                 @endforeach
             </div>
