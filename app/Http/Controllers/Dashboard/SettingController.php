@@ -132,6 +132,8 @@ class SettingController extends Controller
                     'alamat' => $request->alamat,
                     'password' => Hash::make($data['password']),
                 ]);
+            // dd($data);
+
                 return redirect()->back()->with('success', 'Profile berhasil diupdate');
             } else {
                 $request->validate([

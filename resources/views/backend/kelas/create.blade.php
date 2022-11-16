@@ -5,59 +5,67 @@
 @endsection
 
 @section('content')
-
-    <div class="container-fluid">
-
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">@yield('title')</h1>
-
+    <div class="main-content" style="min-height: 534px;">
         @if ($pesan = Session::get('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Selamat !</strong> {{ $pesan }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <strong>Selamat !</strong> {{ $pesan }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             </div>
         @endif
         @if (Session::has('errors'))
-            <div class="alert alert-danger">
-                @foreach ($errors->all() as $error)
-                    {{ $error }}<br />
-                @endforeach
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br />
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </div>
             </div>
         @endif
-
-        <!-- DataTales Example -->
-
-        <div class="card shadow mb-4">
-            <div class="card-body">
-                <form action="{{ route('admin.kelas.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group popppins-bold">
-                        <label for="exampleInputEmail1">Nama Kelas</label>
-                        <input name="title" type="text" class="form-control popppins-light">
-                    </div>
-                    <div class="form-group popppins-bold">
-                        <label for="exampleInputPassword1">URL Video</label>
-                        <input name="url_video" type="text" class="form-control popppins-light">
-                    </div>
-                    <div class=" form-group popppins-bold">
-                        <label for="exampleFormControlTextarea1">Deskripsi</label>
-                        <textarea id="summernote" name="description" class="poppins-light"></textarea>
-                    </div>
-                    <div class="form-group popppins-bold">
-                        <label for="exampleInputPassword1">Harga</label>
-                        <input name="harga" type="number" class="form-control popppins-light">
-                    </div>
-                    <div class="custom-file mt-2">
-                        <input name="image" type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile popppins-bold">Image</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-4 btn-block btn-lg poppins-bold">Submit</button>
-                </form>
+        <div class="section">
+            <div class="section-header">
+                <h1>Daftar Kelas</h1>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4>Tambah Kelas</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('admin.kelas.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group popppins-bold">
+                            <label for="exampleInputEmail1">Nama Kelas</label>
+                            <input name="title" type="text" class="form-control popppins-light">
+                        </div>
+                        <div class="form-group popppins-bold">
+                            <label for="exampleInputPassword1">URL Video</label>
+                            <input name="url_video" type="text" class="form-control popppins-light">
+                        </div>
+                        <div class=" form-group popppins-bold">
+                            <label for="exampleFormControlTextarea1">Deskripsi</label>
+                            <textarea id="summernote" name="description" class="poppins-light"></textarea>
+                        </div>
+                        <div class="form-group popppins-bold">
+                            <label for="exampleInputPassword1">Harga</label>
+                            <input name="harga" type="number" class="form-control popppins-light">
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="image">Gambar</label></h6>
+                            <input type="file" class="form-control" name="image">
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary mr-1 btn-block" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-
     </div>
 @endsection
 

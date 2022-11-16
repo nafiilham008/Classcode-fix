@@ -128,6 +128,6 @@ class KelasController extends Controller
 
         $request->image->move(public_path('images_kelas/'), $imageName);
 
-        return redirect()->route('admin.kelas');
+        return redirect()->route('admin.kelas')->with('success', 'Data kelas berhasil ditambahkan');
     }
 }
