@@ -27,9 +27,9 @@
         </div>
     </div>
     <div class="px-20">
-        <div class="bg-white rounded-xl border-b-2 border px-5 py-5">
-            <h1 class="text-[24px] mb-1 text-blue-900 font-bold text-justify font-vietnam  py-3">Cara pembayaran</h1>
-            <form action="{{ route('bayar.konfirmasi', $data->slug_url) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('bayar.konfirmasi', $data->slug_url) }}" method="POST" enctype="multipart/form-data">
+            <div class="bg-white rounded-xl border-b-2 border px-5 py-5">
+                <h1 class="text-[24px] mb-1 text-blue-900 font-bold text-justify font-vietnam  py-3">Cara pembayaran</h1>
                 <div class="col-5">
                     @csrf
                     <div class="form-outline mb-4">
@@ -43,64 +43,66 @@
                         </select>
                     </div>
                 </div>
-            </form>
-            <div class="bg-white rounded-xl border-b-2 border px-5 py-3">
-                @if (empty($data_fix->diskon))
-                    <div class="flex justify-between">
-                        <h5
-                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
-                            Harga Normal</h5>
-                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
-                            IDR. {{ number_format($data_fix->harga_sebelum) }}</h5>
-                    </div>
-                    <div class="flex justify-between mt-3">
-                        <h5
-                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
-                            Harga Akhir</h5>
-                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
-                            IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
-                    </div>
-                @else
-                    <div class="flex justify-between">
-                        <h5
-                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
-                            Harga Normal</h5>
-                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
-                            IDR. <s>{{ number_format($data_fix->harga_sebelum) }}</s></h5>
-                    </div>
-                    <div class="flex justify-between mt-3">
-                        <h5
-                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
-                            Harga Akhir</h5>
-                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
-                            IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
-                    </div>
-                @endif
-            </div>
-            <div class="bg-white rounded-xl border-b-2 border px-5 py-4">
-                <div class="flex justify-between">
-                    <h5 class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
-                        Total Pembayaran</h5>
-                    <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
-                        IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
+                <div class="bg-white rounded-xl border-b-2 border px-5 py-3">
+                    @if (empty($data_fix->diskon))
+                        <div class="flex justify-between">
+                            <h5
+                                class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                                Harga Normal</h5>
+                            <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                                IDR. {{ number_format($data_fix->harga_sebelum) }}</h5>
+                        </div>
+                        <div class="flex justify-between mt-3">
+                            <h5
+                                class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                                Harga Akhir</h5>
+                            <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                                IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
+                        </div>
+                    @else
+                        <div class="flex justify-between">
+                            <h5
+                                class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                                Harga Normal</h5>
+                            <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                                IDR. <s>{{ number_format($data_fix->harga_sebelum) }}</s></h5>
+                        </div>
+                        <div class="flex justify-between mt-3">
+                            <h5
+                                class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                                Harga Akhir</h5>
+                            <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                                IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
+                        </div>
+                    @endif
                 </div>
+                <div class="bg-white rounded-xl border-b-2 border px-5 py-4">
+                    <div class="flex justify-between">
+                        <h5
+                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                            Total Pembayaran</h5>
+                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                            IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
+                    </div>
 
-            </div>
-            <div class="bg-white rounded-xl border-b-2 border px-5 py-3">
-                <h5 class="text-base font-vietnam tracking-tight text-left font-bold mb-3 text-blue-900 dark:text-white">
-                    Total Pembayaran</h5>
-                <div class="form-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile" name="image">
-                        <label class="custom-file-label poppins" for="customFile">Image</label>
+                </div>
+                <div class="bg-white rounded-xl border-b-2 border px-5 py-3">
+                    <h5
+                        class="text-base font-vietnam tracking-tight text-left font-bold mb-3 text-blue-900 dark:text-white">
+                        Bukti Transfer</h5>
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile" name="image">
+                            <label class="custom-file-label poppins" for="customFile">Image</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="mt-4 flex justify-end">
-                <button type="submit"
-                    class="bg-[#75B843]/80 hover:bg-[#F9AE55] px-4 py-3 text-white font-vietnam rounded-xl">Bayar</button>
-            </div>
-        </div>
+                <div class="mt-4 flex justify-end">
+                    <button type="submit"
+                        class="bg-[#75B843]/80 hover:bg-[#F9AE55] px-4 py-3 text-white font-vietnam rounded-xl">Bayar</button>
+                </div>
+        </form>
+    </div>
     </div>
 @endsection
 

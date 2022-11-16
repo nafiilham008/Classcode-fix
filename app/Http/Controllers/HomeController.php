@@ -159,56 +159,61 @@ class HomeController extends Controller
             return redirect()->back();
         } else {
             # jika tidak kosong maka
-            $check = Checkout::where(['user_id' => auth()->user()->id, 'kelas_id' => $data->id])->first();
-            // check data pada checkout
-            $pay = Payment::find($request->payment);
-            if (empty($pay)) {
-                # jika payment tidak ada maka
-                return redirect()->back();
-            } else {
-                # jika ada maka
-                // dd($request->all());
-                if (empty($check->payment_id)) {
-                    # jika payment id kosong pada checkout maka
-
-                    $join = DB::table('checkouts')
-                        // ->select('kelas.*', 'checkouts.*', 'checkouts.harga as harga_akhir', 'kelas.harga as harga_sebelum')
-                        ->join('users', 'users.id', '=', 'checkouts.user_id')
-                        ->join('kelas', 'kelas.id', '=', 'checkouts.kelas_id')
-                        ->where(['users.id' => auth()->user()->id, 'checkouts.kelas_id' => $data->id])
-                        ->first();
-
-                    $request->validate([
-                        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                    ]);
-
-                    $imageName = time() . '.' . $request->image->extension();
-
-                    // dd($imageName);
-                    $check->update([
-                        'payment_id' => $pay->id,
-                        'status' => 'success',
-                        'image_trx' => $imageName
-                    ]);
-
-                    $request->image->move(public_path('images_trx/'), $imageName);
-
-                    DB::table('join_kelas')->insert([
-                        'kelas_id' => $join->kelas_id,
-                        'user_id' => $join->user_id,
-                        'checkout_id' => $check->id,
-                        'status' => 'pending'
-                    ]);
-                    return view('payment.sukses', compact('data', 'check', 'pay', 'join'));
+            try {
+                //code...
+                $check = Checkout::where(['user_id' => auth()->user()->id, 'kelas_id' => $data->id])->first();
+                // check data pada checkout
+                $pay = Payment::find($request->payment);
+                if (empty($pay)) {
+                    # jika payment tidak ada maka
+                    return redirect()->back();
                 } else {
-                    # jika payment id ada pada checkout maka
-                    return view('payment.gagal');
+                    # jika ada maka
+                    // dd($request->all());
+                    if (empty($check->payment_id)) {
+                        # jika payment id kosong pada checkout maka
+    
+                        $join = DB::table('checkouts')
+                            // ->select('kelas.*', 'checkouts.*', 'checkouts.harga as harga_akhir', 'kelas.harga as harga_sebelum')
+                            ->join('users', 'users.id', '=', 'checkouts.user_id')
+                            ->join('kelas', 'kelas.id', '=', 'checkouts.kelas_id')
+                            ->where(['users.id' => auth()->user()->id, 'checkouts.kelas_id' => $data->id])
+                            ->first();
+    
+                        $request->validate([
+                            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                        ]);
+    
+                        $imageName = time() . '.' . $request->image->extension();
+    
+                        // dd($imageName);
+                        $check->update([
+                            'payment_id' => $pay->id,
+                            'status' => 'success',
+                            'image_trx' => $imageName
+                        ]);
+    
+                        $request->image->move(public_path('images_trx/'), $imageName);
+    
+                        DB::table('join_kelas')->insert([
+                            'kelas_id' => $join->kelas_id,
+                            'user_id' => $join->user_id,
+                            'checkout_id' => $check->id,
+                            'status' => 'pending'
+                        ]);
+                        return view('payment.sukses', compact('data', 'check', 'pay', 'join'));
+                    } else {
+                        # jika payment id ada pada checkout maka
+                        return view('payment.gagal');
+                    }
+                    // try {                    
+                        
+                    // } catch (\Throwable $th) {
+                    //     return $th->getMessage();
+                    // }
                 }
-                // try {                    
-                    
-                // } catch (\Throwable $th) {
-                //     return $th->getMessage();
-                // }
+            } catch (\Throwable $th) {
+                return $th->getMessage();
             }
         }
     }
