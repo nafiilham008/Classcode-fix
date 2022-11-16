@@ -60,6 +60,9 @@
 <body>
     <div id="app">
         <div class="main-wrapper">
+
+            @include('layouts.dashboard.menuatas')
+
             <!-- Header -->
             @include('layouts.dashboard.menu')
 

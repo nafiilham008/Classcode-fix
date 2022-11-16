@@ -1,7 +1,7 @@
 @extends('layouts.dashboard.master')
 
 @section('title')
-    Dashboard User
+    Dashboard Pelanggan
 @endsection
 
 @section('content')
@@ -10,6 +10,41 @@
             <div class="section-header">
                 <h1>Dashboard</h1>
             </div>
+            <div class="row">
+                @foreach ($data as $item)
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4>{{ $item->title }}</h4>
+                                <div class="card-header-action">
+                                    <a href="{{ route('dashboard.kelas.index', $item->slug_url) }}" class="btn btn-primary">
+                                        Lihat Kelas
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-md-6 col-lg-6">
+    
+                                        <p>Mentor</p>
+                                        {{ $item->id_user }}
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+    
+                                        <img class="card-img-top" src="{{ asset('images_kelas/' . $item->image) }} " style="max-width: 100px"
+                                            alt="Course" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+
+            </div>
+
+
 
             {{-- UNTUK DASHBOARD ADMIN DAN MENTOR --}}
             {{-- <div class="row">
@@ -78,23 +113,4 @@
     </div>
 @endsection
 
-{{-- @section('css-tambahan')
-    <style>
-        a:link {
-            text-decoration: none;
-        }
 
-        a:visited {
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: none;
-        }
-
-        a:active {
-            text-decoration: none;
-        }
-
-    </style>
-@endsection --}}
