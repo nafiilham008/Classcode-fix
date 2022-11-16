@@ -59,30 +59,90 @@ class UserController extends Controller
 
         // Jika tidak ganti password
         if ($request->password == '') {
-            $request->validate([
-                'name' => 'required',
-                'alamat' => 'required'
-            ]);
+            if ($request->image == '') {
 
-            $data->update([
-                'username' => $request->name,
-                'alamat' => $request->alamat,
-            ]);
-            return redirect()->back()->with('success','Profile berhasil diupdate');
+                $request->validate([
+                    'name' => 'required',
+                    'alamat' => 'required'
+                ]);
+
+                $data->update([
+                    'username' => $request->name,
+                    'alamat' => $request->alamat,
+                ]);
+                return redirect()->back()->with('success', 'Profile berhasil diupdate');
+            } else {
+                $request->validate([
+                    'name' => 'required',
+                    'alamat' => 'required',
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                ]);
+
+                if (!$data->image) {
+                    $imageName = time() . '.' . $request->image->extension();
+                } else {
+                    $image = public_path('images_profil/' . $data->image);
+                    unlink($image);
+
+                    $imageName = time() . '.' . $request->image->extension();
+                }
+
+                $data->update([
+                    'username' => $request->name,
+                    'alamat' => $request->alamat,
+                    'image' => $imageName
+                ]);
+
+                $request->image->move(public_path('images_profil/'), $imageName);
+
+
+                return redirect()->back()->with('success', 'Profile berhasil diupdate');
+            }
         } else {
-            # jika ada maka
-            $request->validate([
-                'name' => 'required',
-                'alamat' => 'required',
-                'password' => 'required|string|min:8|confirmed'
-            ]);
+            if ($request->image == '') {
 
-            $data->update([
-                'username' => $request->name,
-                'alamat' => $request->alamat,
-                'password' => Hash::make($data['password']),
-            ]);
-            return redirect()->back()->with('success','Profile berhasil diupdate');
+                # jika ada maka
+                $request->validate([
+                    'name' => 'required',
+                    'alamat' => 'required',
+                    'password' => 'required|string|min:8|confirmed'
+                ]);
+
+                $data->update([
+                    'username' => $request->name,
+                    'alamat' => $request->alamat,
+                    'password' => Hash::make($data['password']),
+                ]);
+                return redirect()->back()->with('success', 'Profile berhasil diupdate');
+            } else {
+                $request->validate([
+                    'name' => 'required',
+                    'alamat' => 'required',
+                    'password' => 'required|string|min:8|confirmed',
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
+                ]);
+
+                if (!$data->image) {
+                    $imageName = time() . '.' . $request->image->extension();
+                } else {
+                    $image = public_path('images_profil/' . $data->image);
+                    unlink($image);
+
+                    $imageName = time() . '.' . $request->image->extension();
+                }
+
+                $data->update([
+                    'username' => $request->name,
+                    'alamat' => $request->alamat,
+                    'password' => Hash::make($data['password']),
+                    'image' => $imageName
+                ]);
+                
+                $request->image->move(public_path('images_profil/'), $imageName);
+
+                return redirect()->back()->with('success', 'Profile berhasil diupdate');
+            }
         }
     }
 
@@ -163,7 +223,6 @@ class UserController extends Controller
             ]);
 
             return redirect()->route('admin.user')->with('success', 'User Berhasil diupdate');
-        
         } else {
             // dd($data);
             # jika ada request password baru maka ganti password juga

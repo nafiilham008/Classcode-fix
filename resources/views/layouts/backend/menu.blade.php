@@ -2,10 +2,12 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.index') }}">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+            {{-- <i class="fas fa-laugh-wink"></i> --}}
+            <img src="../../assets/image/logo.png" class="relative" alt="">
+
         </div>
-        <div class="sidebar-brand-text mx-3 poppins-bold">Admin Classcode</div>
+        {{-- <div class="sidebar-brand-text mx-3 poppins-bold">Admin Classcode</div> --}}
     </a>
 
     <!-- Divider -->
@@ -72,15 +74,15 @@
 
     <!-- Divider -->
     @role('admin')
-    <hr class="sidebar-divider d-none d-md-block">
-    <div class="sidebar-heading poppins-bold">
-        Status
-    </div>
-    <li class="nav-item poppins-light">
-        <a class="nav-link" href="{{ route('admin.pending.kelas') }}">
-            <i class="fas fa-th"></i>
-            <span>Pending kelas</span></a>
-    </li>
+        <hr class="sidebar-divider d-none d-md-block">
+        <div class="sidebar-heading poppins-bold">
+            Status
+        </div>
+        <li class="nav-item poppins-light">
+            <a class="nav-link" href="{{ route('admin.pending.kelas') }}">
+                <i class="fas fa-th"></i>
+                <span>Pending kelas</span></a>
+        </li>
     @endrole
     <hr class="sidebar-divider d-none d-md-block">
 
