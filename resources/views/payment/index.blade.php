@@ -5,13 +5,15 @@
 @endsection
 
 @section('content')
-    @if ($message = Session::get('error'))
-        <div class="alert alert-danger alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
+
+
+    @if (Session::has('errors'))
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br />
+            @endforeach
         </div>
     @endif
-
 
     <div class="d-flex justify-align-center" style="padding-top: 100px;">
         <div class="mx-auto mt-5">
@@ -31,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
 
             <div class="col-md-12">
@@ -39,7 +41,8 @@
                     <div class="card-body" style="text-align: left;">
                         <p class="card-title poppins-bold">Cara Pembayaran</p>
                     </div>
-                    <form action="{{ route('bayar.konfirmasi', $data->slug_url) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('bayar.konfirmasi', $data->slug_url) }}" method="POST"
+                        enctype="multipart/form-data">
                         <div class="col-5">
                             @csrf
                             <div class="form-outline mb-4">
