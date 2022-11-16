@@ -6,36 +6,44 @@
 
 @section('content')
     <section class="catalog">
-            <h2 class="font-vietnam font-bold text-center py-20 text-[34px]">
-                Promo
-            </h2>
-            <div class="flex justify-center mb-14">
-                <div class="flex flex-wrap lg:gap-5">
-                    @foreach ($data as $promo)
+        <h2 class="font-vietnam font-bold text-center py-20 text-[34px]">
+            Promo
+        </h2>
+        <div class="flex justify-center mb-14">
+            <div class="flex flex-wrap lg:gap-5">
+                @foreach ($data as $promo)
                     <div
                         class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                         <div class="bg-[#b9ebfc] rounded-t-lg">
                             <a href="#">
-                                <img class="" src="{{asset('images_kupon/'. $promo->image)}}" alt="">
+                                <div class="bg-no-repeat bg-center bg-cover  w-[300px] h-48 rounded-t-lg"
+                                    style="background-image: url('{{ asset('images_kupon/' . $promo->image) }}');">
+                                </div>
                             </a>
                         </div>
                         <div class="py-5 px-4">
                             <a href="#">
                                 <h5
-                                    class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">{{ $promo->title }}</h5>
-                                    
-                            <div class="flex gap-3 items-center py-3">
-                                <iconify-icon icon="ic:outline-discount" style="color: #24a4e0;" width="30" height="30"></iconify-icon>
-                                <h3 class="text-4xl font-vietnam text-[#219ebc]">{{ $promo->diskon }}%<</h3>
-                            </div>
+                                    class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                    {{ $promo->title }}</h5>
+
+                                <div class="flex gap-3 items-center py-3">
+                                    <iconify-icon icon="ic:outline-discount" style="color: #24a4e0;" width="30"
+                                        height="30"></iconify-icon>
+                                    <h3 class="text-4xl font-vietnam text-[#219ebc]">{{ $promo->diskon }}%</h3>
+                                </div>
                         </div>
-                    </div><button
-                    class="px-4 py-3 text-center rounded-b-xl text-white font-vietnam w-full bg-[#75B843]/80 hover:bg-[#F9AE55] detail" data-url="{{ route('ambil_kupon', $promo->id) }}" type="button" href="">Ambil</button>  
-                    @endforeach
-                </div>
-    
+                        <div class="flex">
+                            <button
+                                class="px-4 py-3 text-center rounded-b-xl text-white font-vietnam w-full bg-[#75B843]/80 hover:bg-[#F9AE55] detail"
+                                type="button" data-url="{{ route('ambil_kupon', $promo->id) }}">Ambil</button>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        
+
+        </div>
+
         {{-- <div class="row mylist">
             @foreach ($data as $kelas)
                 <div class="col-md-4 mt-2 mb-5">

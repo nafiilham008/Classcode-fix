@@ -11,7 +11,7 @@
             </a>
             <a href="{{ route('kelas.index') }}"
                 class="lg:inline-flex font-vietnam lg:w-auto w-full py-2 rounded text-white items-center justify-center">
-                <span class="hover:text-[#F9AE55]">Katalok Kelas</span>
+                <span class="hover:text-[#F9AE55]">Katalog Kelas</span>
             </a>
             <a href="{{ route('promo.index') }}"
                 class="lg:inline-flex font-vietnam lg:w-auto w-full py-2 rounded text-white items-center justify-center">
