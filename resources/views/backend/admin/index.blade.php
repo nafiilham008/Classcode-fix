@@ -1,65 +1,117 @@
 @extends('layouts.backend.master')
 
 @section('title')
-    Halaman Admin 
+    Halaman Admin
 @endsection
 
 @section('content')
-<div class="container-fluid">
-    <div class="row">
+    <div class="main-content" style="min-height: 534px;">
+        <section class="section">
+            <div class="section-header">
+                <h1>Dashboard</h1>
+            </div>
+            {{-- UNTUK DASHBOARD ADMIN DAN MENTOR --}}
+            <div class="row">
 
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-4 col-md-6 mb-4 ">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
+                @role('admin')
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1">
+                            <div class="card-icon bg-primary">
+                                <i class="far fa-user"></i>
+                            </div>
+                            <div class="card-wrap">
+                                <div class="card-header">
+                                    <h4>Total Pelanggan</h4>
+                                </div>
+                                <div class="card-body">
+                                    {{ $dataUser }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1">
+                            <div class="card-icon bg-danger">
+                                <i class="far fa-newspaper"></i>
+                            </div>
+                            <div class="card-wrap">
+                                <div class="card-header">
+                                    <h4>Total Mentor</h4>
+                                </div>
+                                <div class="card-body">
+                                    {{ $dataMentor }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endrole
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="far fa-file"></i>
+                        </div>
+                        <div class="card-wrap">
                             @role('mentor')
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 poppins-bold">
-                                Total Kelas ( {{ Auth()->user()->username }} )</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800 poppins-light">{{ $dataKelasMentor }}</div>
+                                <div class="card-header">
+                                    <h4>Total Kelas ( {{ Auth()->user()->username }} )</h4>
+                                </div>
+                                <div class="card-body">
+                                    {{ $dataKelasMentor }}
+                                </div>
                             @endrole
                             @role('admin')
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 poppins-bold">
-                                Total Kelas </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800 poppins-light">{{ $dataKelas }}</div>
+                                <div class="card-header">
+                                    <h4>Total Kelas</h4>
+                                </div>
+                                <div class="card-body">
+                                    {{ $dataKelas }}
+                                </div>
                             @endrole
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                
 
-        @role('admin')
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-4 col-md-6 mb-4">
-            <div class="card border-left-warning border shadow h-100 py-2" style="width: 10px">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 poppins-bold">
-                                Total Mentor </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800 poppins-light">{{ $dataMentor }}</div>
+
+                {{-- <div class="row">
+                @foreach ($data as $item)
+                    <div class="col-12 col-md-4 col-lg-4">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4>{{ $item->title }}</h4>
+                                <div class="card-header-action">
+                                    <a href="{{ route('dashboard.kelas.index', $item->slug_url) }}" class="btn btn-primary">
+                                        Lihat Kelas
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-md-6 col-lg-6">
+
+                                        <p>Mentor</p>
+                                        {{ $item->id_user }}
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+
+                                        <img class="card-img-top" src="{{ asset('images_kelas/' . $item->image) }} "
+                                            style="max-width: 100px" alt="Course">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
+
+            </div> --}}
+
+
+
+
             </div>
-        </div>
-        <div class="col-xl-4 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1 poppins-bold">
-                                Total User</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800 poppins-light">{{ $dataUser }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endrole
-</div>
-<!-- /.container-fluid -->
+        </section>
+    </div>
 @endsection
-
