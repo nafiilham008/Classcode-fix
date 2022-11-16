@@ -239,11 +239,9 @@
                     @foreach ($data as $kelas)
                         <div
                             class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                            <div class="bg-[#b9ebfc] rounded-t-lg">
-                                <a href="#">
-                                    <img class="" src="{{ asset('images_kelas/' . $kelas->image) }}" alt="">
-                                </a>
-                            </div>
+                            <div class="bg-no-repeat bg-center bg-cover  w-[298px] h-48 rounded-t-lg"
+                            style="background-image: url('{{ asset('images_kelas/' . $kelas->image) }}');">
+                        </div>
                             <div class="py-5 px-4">
                                 <a href="{{ route('kelas.detail', $kelas->slug_url) }}">
                                     <h5

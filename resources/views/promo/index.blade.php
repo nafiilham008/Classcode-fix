@@ -5,72 +5,62 @@
 @endsection
 
 @section('content')
-
     <section class="catalog">
-        <div class="title-kelas text-center mt-5" style="padding-top: 100px;">
-
-            <h2 class="poppins-bold">
-                Coupon
+            <h2 class="font-vietnam font-bold text-center py-20 text-[34px]">
+                Promo
             </h2>
-
-        </div>
-        <div class="row">
-            @foreach ($data as $promo)
-                <div class="d-flex mx-auto card coupon-responsive mt-5" style="border-radius: 20px;">
-                    <img class="card-img-top  mx-auto mt-4 object-fit-fill"
-                        src="{{asset('images_kupon/'. $promo->image)}}" alt="Course"
-                        style="width: 200px; height: 200px;">
-                    <div class="card-body" style="text-align: left;">
-                        <p class="card-title poppins-bold h4">{{ $promo->title }}</p>
-                        <p class="card-title poppins-light">Discount</p>
-                        <p class="card-title poppins-bold">{{ $promo->diskon }}%</p>
-                        <hr style="width:100%;text-align:left;margin-left:0;color: black;background-color: black;">
-                    </div>
-                    <div class="card-body d-flex justify-content-between">
-                        <button class="btn btn-success btn-sm poppins-light mr-3 btn-lg kupon" style="border-radius: 20px;"
-                            data-url="{{ route('ambil_kupon', $promo->id) }}" role="button">Ambil
-                            Kupon</button>
-                        <button class="btn btn-primary btn-sm poppins-light ml-3 btn-lg detail" style="border-radius: 20px";
-                            data-url="{{ route('ambil_promo', $promo->id) }}" role="button">Detail
-                            Kupon</button>
-                    </div>
+            <div class="flex justify-center mb-14">
+                <div class="flex flex-wrap lg:gap-5">
+                    @foreach ($data as $promo)
+                    <div
+                        class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <div class="bg-[#b9ebfc] rounded-t-lg">
+                            <a href="#">
+                                <img class="" src="{{asset('images_kupon/'. $promo->image)}}" alt="">
+                            </a>
+                        </div>
+                        <div class="py-5 px-4">
+                            <a href="#">
+                                <h5
+                                    class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">{{ $promo->title }}</h5>
+                                    
+                            <div class="flex gap-3 items-center py-3">
+                                <iconify-icon icon="ic:outline-discount" style="color: #24a4e0;" width="30" height="30"></iconify-icon>
+                                <h3 class="text-4xl font-vietnam text-[#219ebc]">{{ $promo->diskon }}%<</h3>
+                            </div>
+                        </div>
+                    </div><button
+                    class="px-4 py-3 text-center rounded-b-xl text-white font-vietnam w-full bg-[#75B843]/80 hover:bg-[#F9AE55] detail" data-url="{{ route('ambil_kupon', $promo->id) }}" type="button" href="">Ambil</button>  
+                    @endforeach
+                </div>
+    
+            </div>
+        
+        {{-- <div class="row mylist">
+            @foreach ($data as $kelas)
+                <div class="col-md-4 mt-2 mb-5">
+                    <a class="card mx-auto kartuku titleku" style="border-radius: 20px; width:300px"
+                        href="{{ route('kelas.detail', $kelas->slug_url) }}">
+                        <img class="card-img-top  mx-auto mt-4 object-fit-fill" src="{{ asset('images_kelas/' . $kelas->image) }}"
+                            alt="Course" style="width: 250px; height: 250px">
+                        <div class="card-body" style="text-align: left;">
+                            <p class="card-title poppins-bold">{{ $kelas->title }}</p>
+                            <p class="card-text poppins-bold h5">Rp. {{ number_format($kelas->harga) }}</p>
+                            <hr style="width:100%;text-align:left;margin-left:0;color: black;background-color: black;">
+                        </div>
+                        <div class="card-body" style="text-align: left; ">
+                            <p class="card-text mentor poppins-bold">
+                                {{ $kelas->id_user }}
+                            </p>
+                            <p class="card-text">
+                                Mentor
+                            </p>
+                        </div>
+                    </a>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
     </section>
-
-    {{-- pup up detail promo --}}
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body"></div>
-            </div>
-        </div>
-    </div>
-
-    {{-- pup up ambil promo --}}
-    <div class="modal fade" id="ambil_kupon" tabindex="-1" aria-labelledby="ambil_kuponLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ambil_kuponLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h3 class="isi_kupon text-center poppins-bold"></h3>
-                    <button class="btn btn-primary poppins-light btn-block copy">Copy Text</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('js-tambahan')

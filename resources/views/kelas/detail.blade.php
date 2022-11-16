@@ -5,80 +5,69 @@
 @endsection
 
 @section('content')
-    <section class="video-class">
-        <div class="row">
-            <div class="col md-8 class-detail-1">
-                <div class="card" style="border-radius: 20px;" class="">
-                    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="{{ $data->url_video }}"
-                        style="border-radius: 20px;" class=""></div>
-                </div>
-            </div>
-            <div class="col-md-4 class-detail">
-                <div class="card kartu-size-class ">
-                    <img class="card-img-top  mx-auto mt-4 object-fit-fill result-search-image-responsive" src="{{ asset('images_kelas/' . $data->image) }}" alt="Course"
-                        style="width: 200px; height: 200px">
-                    <div class="card-body" style="text-align: left;">
-                        <p class="card-title poppins-bold"></p>
-                        <p class="card-text class-judul ">
-                        <h3 class="poppins-bold">Rp.
-                            {{ number_format($data->harga) }}</h3>
-                        </p>
-                        <p class="card-title font-italic">Dapat diakses selamanya</p>
-                    </div>
-                    <div class="card-footer-class">      
-                        <a class="btn btn-success btn-lg btn-block poppins-bold" type="button"
-                            style="border-radius: 0 0 20px 20px;" @role('user') href="{{ route('checkout.index', $data->slug_url) }} @endrole">
-                            Gabung Kelas
+    <div class="flex justify-center py-10">
+        <h1 class="text-4xl text-center font-vietnam font-bold tracking-wide text-[#395083]">
+            {{ $data->title }}
+        </h1>
+    </div>
+    <div class="grid grid-cols-12  h-auto  items-center w-full px-10 py-10">
+        <div class="col-span-9 ">
+            <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="{{ $data->url_video }}"
+                style="border-radius: 20px;" class=" "></div>
+        </div>
+        <div class="col-span-3">
+            <div class="flex flex-col items-end">
+                <div
+                    class="lg:w-[300px] bg-white rounded-t-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <div class="rounded-t-lg">
+                        <a href="#">
+                            {{-- <img class="" src="{{ asset('images_kelas/' . $data->image) }}" alt=""> --}}
+                            <div class="bg-no-repeat bg-center bg-cover  w-[300px] h-48 rounded-t-lg"
+                                style="background-image: url('{{ asset('images_kelas/' . $data->image) }}');">
+                            </div>
                         </a>
                     </div>
+                    <div class="py-5 px-4">
+                        <a href="#">
+                            <h5 class="mb-2 text-xl font-bold font-vietnam tracking-tight text-blue-900 dark:text-white">
+                                {{ $data->title }}</h5>
+                            <h5 class="mb-2 text-base font-vietnam tracking-tight text-blue-900 dark:text-white">IDR
+                                {{ number_format($data->harga) }}</h5>
+                        </a>
+                        <div class="flex gap-3 items-center py-3">
+                            <iconify-icon icon="cil:clock" style="color: #219ebc;" width="24" height="24">
+                            </iconify-icon>
+                            <h3 class="text-sm font-vietnam text-[#219ebc]">Mentor</h3>
+                        </div>
+                        <div class="flex gap-3 items-center">
+                            <iconify-icon icon="ph:medal-light" style="color: #219ebc;" width="24" height="24">
+                            </iconify-icon>
+                            <h3 class="text-sm font-vietnam text-[#219ebc]">Sertifikat</h3>
+                        </div>
+                    </div>
+                </div>
+                <a
+                    class="px-4 py-3 text-center rounded-b-xl text-white font-vietnam w-[300px] bg-[#75B843]/80 hover:bg-[#F9AE55]" type="button" @role('user') href="{{ route('checkout.index', $data->slug_url) }} @endrole">Gabung
+                    Kelas</a>
+            </div>
+        </div>
+    </div>
+    <div class="px-10">
+        <h1 class="text-[24px] mb-1 text-blue-900 font-bold text-justify font-vietnam  py-3">Description</h1>
+        <h1 class="text-[16px] w-3/4 mb-1 text-blue-900 text-justify font-vietnam  py-3">{!! $data->description !!}</h1>
+    </div>
+    <div class="py-10 px-10">
+        <h1 class="text-[24px] mb-1 text-blue-900 font-bold text-justify font-vietnam  py-3">Mentor</h1>
+        <div class="bg-white hover:shadow-lg w-[300px] rounded-xl h-48 lg:px-10 px-5 hover:top-[2px] hover:left-[1px]">
+            <div class="flex justify-center flex-col items-center h-full">
+                <img class="w-[80px] h-[80px] rounded-full" src="../../assets/image/nafi.png" alt="Rounded avatar">
+                <div class="flex justify-center">
+                    <h1 class="text-[16px] w-3/4  text-blue-900 text-center font-bold font-vietnam  py-3">
+                        {{ $data->id_user }}</h1>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="deskripsi">
-        <div class="row">
-            <div class="col md-8">
-                <!-- title -->
-                <p><h2 class="poppins-bold">{{ $data->title }}</h2></p>
-                <!-- desc -->
-                <p><h5 class="poppins-bold">Description </h5></p>
-                <!-- details -->
-                {!! $data->description !!}
-            </div>
-        </div>
-
-        <!-- picture -->
-        <p><h5 class="poppins-bold mt-5 gambar-hilang">Picture </h5></p>
-        <div class="row gambar-hilang" id="pic">
-            <div class="col-md-4">
-                <a class="lightbox" href="#detail1">
-                    <img src="{{ asset('images_kelas/' . $data->image) }}" class="picture-responsive-detail">
-                </a>
-                <div class="lightbox-target" id="detail1">
-                    <img src="{{ asset('images_kelas/' . $data->image) }}" />
-                    <a class="lightbox-close" href="#pic"></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mentor -->
-        <p class="poppins-bold mt-4" style="font-size: 22px;">Mentor</p>
-        <div class="row">
-            <div class="col">
-                <a class="card kartu-size-class-1">
-                    <img class="card-img-top mt-3 rounded-sircle mx-auto"
-                        src="{{ asset('assets/node_modules/bootstrap/dist/css/img/novia.png') }}" alt="Novia"
-                        style="width: 55px;">
-                    <div class="card-body text-center">
-                        <p class="card-title poppins-bold">{{ $data->id_user }}</p>
-                    </div>
-                    <div class="card-body" style="text-align: left; ">
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </section>
+    </div>
 @endsection
 
 @section('css-tambahan')
@@ -109,17 +98,17 @@
             on('.js-pause', 'click', () => {
                 player.pause();
             });
-            
+
             // Stop
             on('.js-stop', 'click', () => {
                 player.stop();
             });
-            
+
             // Rewind
             on('.js-rewind', 'click', () => {
                 player.rewind();
             });
-            
+
             // Forward
             on('.js-forward', 'click', () => {
                 player.forward();
