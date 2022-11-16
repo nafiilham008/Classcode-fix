@@ -15,109 +15,92 @@
         </div>
     @endif
 
-    <div class="d-flex justify-align-center" style="padding-top: 100px;">
-        <div class="mx-auto mt-5">
-            <h2 class="poppins-bold">
-                Payment
-            </h2>
+    <div class="flex justify-center py-10">
+        <h1 class="text-4xl text-center font-vietnam font-bold tracking-wide text-[#395083]">
+            Payment
+        </h1>
+    </div>
+    <div class="px-20">
+        <div class="bg-white rounded-xl border border-b-2 px-5 py-5">
+            <h1 class="text-[24px] mb-1 text-blue-900 font-bold text-justify font-vietnam  py-3">Ringkasan Pesanan</h1>
+            <h1 class="text-[16px] w-3/4 mb-1 text-blue-900 text-justify font-vietnam ">{{ $data_fix->title }}</h1>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-4">
-                <div class="card p-3">
-                    <div class="card-body" style="text-align: left;">
-                        <p class="card-title poppins-bold">Ringkasan Pesanan</p>
-                        <p class="card-title poppins">{{ $data_fix->title }}</p>
+    <div class="px-20">
+        <div class="bg-white rounded-xl border-b-2 border px-5 py-5">
+            <h1 class="text-[24px] mb-1 text-blue-900 font-bold text-justify font-vietnam  py-3">Cara pembayaran</h1>
+            <form action="{{ route('bayar.konfirmasi', $data->slug_url) }}" method="POST" enctype="multipart/form-data">
+                <div class="col-5">
+                    @csrf
+                    <div class="form-outline mb-4">
+                        <!-- Example single danger button -->
+                        <select class="form-control" name="payment">
+                            @foreach ($pay as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }} | {{ $item->nomer }} |
+                                    {{ $item->atas_nama }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div class="bg-white rounded-xl border-b-2 border px-5 py-3">
+                @if (empty($data_fix->diskon))
+                    <div class="flex justify-between">
+                        <h5
+                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                            Harga Normal</h5>
+                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                            IDR. {{ number_format($data_fix->harga_sebelum) }}</h5>
+                    </div>
+                    <div class="flex justify-between mt-3">
+                        <h5
+                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                            Harga Akhir</h5>
+                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                            IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
+                    </div>
+                @else
+                    <div class="flex justify-between">
+                        <h5
+                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                            Harga Normal</h5>
+                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                            IDR. <s>{{ number_format($data_fix->harga_sebelum) }}</s></h5>
+                    </div>
+                    <div class="flex justify-between mt-3">
+                        <h5
+                            class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                            Harga Akhir</h5>
+                        <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                            IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
+                    </div>
+                @endif
+            </div>
+            <div class="bg-white rounded-xl border-b-2 border px-5 py-4">
+                <div class="flex justify-between">
+                    <h5 class="text-base font-vietnam tracking-tight text-center font-bold text-blue-900 dark:text-white">
+                        Total Pembayaran</h5>
+                    <h5 class="text-base font-vietnam tracking-tight text-center text-blue-900 dark:text-white">
+                        IDR. {{ number_format($data_fix->harga_akhir) }}</h5>
+                </div>
 
+            </div>
+            <div class="bg-white rounded-xl border-b-2 border px-5 py-3">
+                <h5 class="text-base font-vietnam tracking-tight text-left font-bold mb-3 text-blue-900 dark:text-white">
+                    Total Pembayaran</h5>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile" name="image">
+                        <label class="custom-file-label poppins" for="customFile">Image</label>
                     </div>
                 </div>
             </div>
-
-
-
-            <div class="col-md-12">
-                <div class="card p-3">
-                    <div class="card-body" style="text-align: left;">
-                        <p class="card-title poppins-bold">Cara Pembayaran</p>
-                    </div>
-                    <form action="{{ route('bayar.konfirmasi', $data->slug_url) }}" method="POST"
-                        enctype="multipart/form-data">
-                        <div class="col-5">
-                            @csrf
-                            <div class="form-outline mb-4">
-                                <!-- Example single danger button -->
-                                <select class="form-control" name="payment">
-                                    @foreach ($pay as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }} | {{ $item->nomer }} |
-                                            {{ $item->atas_nama }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="card p-3">
-                                <div class="card-body" style="text-align: left;">
-                                    @if (empty($data_fix->diskon))
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <p class="textmuted card-title poppins">Harga Normal</p>
-                                            <p class="fs-14 fw-bold card-title poppins"> Rp.
-                                                {{ number_format($data_fix->harga_sebelum) }} </p>
-                                        </div>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <p class="textmuted card-title poppins">Harga Akhir</p>
-                                            <p class="fs-14 fw-bold card-title poppins">Rp
-                                                {{ number_format($data_fix->harga_akhir) }}</p>
-                                        </div>
-                                    @else
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <p class="textmuted card-title poppins">Harga Normal</p>
-                                            <p class="fs-14 fw-bold card-title poppins"><s>Rp.
-                                                    {{ number_format($data_fix->harga_sebelum) }} </s></p>
-                                        </div>
-                                        <div class="d-flex justify-content-between mb-2">
-                                            <p class="textmuted card-title poppins">Harga Akhir</p>
-                                            <p class="fs-14 fw-bold card-title poppins">Rp
-                                                {{ number_format($data_fix->harga_akhir) }}</p>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 mb-4">
-                            <div class="card p-3">
-                                <div class="card-body" style="text-align: left;">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <p class="textmuted card-title poppins-bold">Total Pembayaran</p>
-                                        <p class="fs-14 fw-bold card-title poppins">Rp
-                                            {{ number_format($data_fix->harga_akhir) }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card p-3">
-                                <div class="card-body" style="text-align: left;">
-                                    <p class="card-title poppins-bold">Upload bukti pembayaran</p>
-                                    <div class="form-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" name="image">
-                                            <label class="custom-file-label poppins" for="customFile">Image</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <button type="submit" class="mx-auto btn btn-success btn-block btn-lg mr-12 poppins-light"
-                                style="text-align: center;">
-                                Bayar</button>
-                    </form>
-                </div>
+            <div class="mt-4 flex justify-end">
+                <button type="submit"
+                    class="bg-[#75B843]/80 hover:bg-[#F9AE55] px-4 py-3 text-white font-vietnam rounded-xl">Bayar</button>
             </div>
         </div>
-    </div>
     </div>
 @endsection
 

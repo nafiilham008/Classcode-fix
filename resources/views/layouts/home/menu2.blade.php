@@ -11,7 +11,7 @@
             </a>
             <a href="{{ route('kelas.index') }}"
                 class="lg:inline-flex font-vietnam lg:w-auto w-full py-2 rounded text-white items-center justify-center">
-                <span class="hover:text-[#F9AE55]">Course</span>
+                <span class="hover:text-[#F9AE55]">Katalok Kelas</span>
             </a>
             <a href="{{ route('promo.index') }}"
                 class="lg:inline-flex font-vietnam lg:w-auto w-full py-2 rounded text-white items-center justify-center">
@@ -54,7 +54,7 @@
                     </a>
                     <a href="{{ route('kelas.index') }}"
                         class="font-vietnam lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center hover:bg-[#F9AE55] hover:text-[#F9AE55]">
-                        <span>Course</span>
+                        <span>Katalok Kelas</span>
                     </a>
                     <a href="{{ route('promo.index') }}"
                         class="font-vietnam lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center hover:bg-[#F9AE55] hover:text-[#F9AE55]">
@@ -71,7 +71,7 @@
                         <span>Daftar</span>
                     </a>
                 @else
-                    <div x-data="{ open: false }" class="bg-[#395083] w-64   flex justify-center items-center">
+                    <div x-data="{ open: false }" class="bg-[#395083] w-auto px-3  flex justify-center items-center">
                         <div @click="open = !open" class="relative border-b-4 border-transparent py-3"
                             :class="{ 'border-indigo-700 transform transition duration-300 ': open }"
                             x-transition:enter-end="transform opacity-100 scale-100"
