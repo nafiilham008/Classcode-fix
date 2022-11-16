@@ -40,6 +40,12 @@
                 </li>
             @endrole
 
+            @role('admin')
+                <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.partner') ? 'active' : '' }}">
+                    <a href="{{ route('admin.partner') }}" class="nav-link"><i class="fas fa-handshake"></i><span>Partner</span></a>
+                </li>
+            @endrole
+
             @role('mentor')
                 <li class="menu-header">Pengaturan</li>
                 <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.user.setting.mentor') ? 'active' : '' }}">

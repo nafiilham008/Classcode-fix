@@ -5,6 +5,76 @@
 @endsection
 
 @section('content')
+    <div class="main-content" style="min-height: 534px;">
+        @if ($pesan = Session::get('success'))
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <strong>Selamat !</strong> {{ $pesan }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        @endif
+        @if (Session::has('errors'))
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br />
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+        <div class="section">
+            <div class="section-header">
+                <h1>Daftar Promo</h1>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4>Edit Promo</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('admin.promo.update', $data->id) }}" method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+
+                        <div class="form-group popppins-bold">
+                            <label for="exampleInputEmail1">Nama Promo</label>
+                            <input name="title" type="text" class="form-control popppins-light"
+                                value="{{ $data->title }}">
+                        </div>
+                        <div class="form-group popppins-bold">
+                            <label for="exampleInputPassword1">Kode Promo</label>
+                            <input name="kode_promo" type="text" class="form-control popppins-light"
+                                value="{{ $data->kode_promo }}">
+                        </div>
+                        <div class="form-group popppins-bold">
+                            <label for="exampleInputPassword1">Diskon</label>
+                            <input name="diskon" type="number" class="form-control popppins-light"
+                                value="{{ $data->diskon }}">
+                        </div>
+                        <div class="form-group popppins-bold">
+                            <label for="exampleFormControlTextarea1">Deskripsi</label>
+                            <textarea id="summernote" name="deskripsi" class="popppins-light"> {!! $data->deskripsi !!} </textarea>
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="image">Gambar</label></h6>
+                            <input type="file" class="form-control" name="image">
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary mr-1 btn-block" type="submit">Submit</button>
+                        </div>>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container-fluid">
 
         <!-- Page Heading -->
@@ -33,26 +103,29 @@
             <div class="card-body">
                 <form action="{{ route('admin.promo.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method("PATCH")
+                    @method('PATCH')
 
                     <div class="form-group popppins-bold">
                         <label for="exampleInputEmail1">Nama Promo</label>
-                        <input name="title" type="text" class="form-control popppins-light" value="{{ $data->title }}">
+                        <input name="title" type="text" class="form-control popppins-light"
+                            value="{{ $data->title }}">
                     </div>
                     <div class="form-group popppins-bold">
                         <label for="exampleInputPassword1">Kode Promo</label>
-                        <input name="kode_promo" type="text" class="form-control popppins-light" value="{{ $data->kode_promo }}">
+                        <input name="kode_promo" type="text" class="form-control popppins-light"
+                            value="{{ $data->kode_promo }}">
                     </div>
                     <div class="form-group popppins-bold">
                         <label for="exampleInputPassword1">Diskon</label>
-                        <input name="diskon" type="number" class="form-control popppins-light" value="{{ $data->diskon }}">
+                        <input name="diskon" type="number" class="form-control popppins-light"
+                            value="{{ $data->diskon }}">
                     </div>
                     <div class="form-group popppins-bold">
                         <label for="exampleFormControlTextarea1">Deskripsi</label>
                         <textarea id="summernote" name="deskripsi" class="popppins-light"> {!! $data->deskripsi !!} </textarea>
                     </div>
                     <div class="custom-file popppins-bold">
-                        <input name="image" type="file" class="custom-file-input" >
+                        <input name="image" type="file" class="custom-file-input">
                         <label class="custom-file-label" for="customFile" value="{{ $data->image }}">Image</label>
                     </div>
                     <button type="submit" class="btn btn-primary mt-4 btn-block btn-lg">Submit</button>

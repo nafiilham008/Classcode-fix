@@ -54,7 +54,9 @@
                             <label for="fullname">Password</label>
                             <input type="password" class="form-control" name="password" id="password" value="">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary mr-1 btn-block" type="submit">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

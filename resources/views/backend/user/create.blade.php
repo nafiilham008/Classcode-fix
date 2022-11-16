@@ -36,8 +36,8 @@
                 <div class="card-header">
                     <h4>Tambah Pengguna</h4>
                 </div>
-                <div class="card-body">
-                    <form action="{{ route('admin.user.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.user.store') }}" method="POST" enctype="multipart/form-data">
+                    <div class="card-body">
                         @csrf
                         <div class="form-group popppins-bold">
                             <label for="exampleInputEmail1">Nama</label>
@@ -62,9 +62,11 @@
                                 @endforeach
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-4 btn-block btn-lg">Submit</button>
-                    </form>
-                </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary mr-1 btn-block" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

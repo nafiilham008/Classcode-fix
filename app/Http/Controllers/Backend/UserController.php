@@ -229,13 +229,14 @@ class UserController extends Controller
             $request->validate([
                 'name' => 'required',
                 'email' => 'required',
-                'password' => 'required'
+                'password' => 'required|string|min:8|confirmed',
             ]);
 
             $data->update([
                 'username' => $request->name,
                 'email' => $request->email,
                 'password' =>  Hash::make($data['password']),
+                // 'password' =>  $request->password,
             ]);
 
             return redirect()->route('admin.user')->with('success', 'User Berhasil diupdate dan Password berubah');
