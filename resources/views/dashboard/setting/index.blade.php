@@ -47,7 +47,7 @@
                                 placeholder="Silahkan isi nama anda">
                         </div>
                         <div class="form-group">
-                            <h6><label for="name">Alamat</label></h6>
+                            <h6><label for="alamat">Alamat</label></h6>
                             <textarea class="form-control" name="alamat" placeholder="Silahkan isi alamat anda">{!! $data->alamat !!}</textarea>
                         </div>
                         <div class="form-group">
@@ -63,6 +63,10 @@
                             <input type="password" id="inputPassword5" class="form-control"
                                 aria-describedby="passwordHelpBlock" name="password_confirmation"
                                 placeholder="Minimal 8 karakter">
+                        </div>
+                        <div class="form-group">
+                            <h6><label for="image">Foto Profil</label></h6>
+                            <input type="file" class="form-control" name="image" value="{{ $data->image }}">
                         </div>
                     </div>
                     <div class="card-footer text-right">

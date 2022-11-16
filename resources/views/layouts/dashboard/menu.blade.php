@@ -18,7 +18,7 @@
 
             <li class="menu-header">Pengaturan</li>
             <li class="nav-item dropdown {{ Route::currentRouteNamed('dashboard.setting.index') ? 'active' : '' }}">
-                <a href="{{ route('dashboard.index') }}" class="nav-link"><i
+                <a href="{{ route('dashboard.setting.index') }}" class="nav-link"><i
                         class="fas fa-gear"></i><span>Pengaturan</span></a>
             </li>
             

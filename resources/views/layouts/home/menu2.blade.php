@@ -80,7 +80,7 @@
                             <div class="flex justify-center items-center space-x-3 cursor-pointer">
                                 <div class="w-12 h-12 rounded-full overflow-hidden border-2  border-gray-900">
                                     @if (!Auth()->user()->image)
-                                        <img src="images_profil/default.jpg"
+                                        <img src="{{ asset('stisla/img/avatar/avatar-1.png') }}"
                                             alt="Designed by syarifahbrit / Freepik" class="w-full h-full object-cover">
                                     @else
                                         <img src="{{ asset('images_profil/' . Auth::user()->image) }}" alt="profil"
