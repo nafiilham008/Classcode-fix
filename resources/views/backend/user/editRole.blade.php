@@ -5,50 +5,53 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
-
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">@yield('title')</h1>
-
+    <div class="main-content" style="min-height: 534px;">
         @if ($pesan = Session::get('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Selamat !</strong> {{ $pesan }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <strong>Selamat !</strong> {{ $pesan }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             </div>
         @endif
-
-        @if ($message = Session::get('error'))
-            <div class="alert alert-danger alert-block fade show" role="alert">
-                <strong>Gagal !</strong> {{ $pesan }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        @if (Session::has('errors'))
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br />
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </div>
             </div>
         @endif
-
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Edit User : {{ $data->username }}</h6>
+        <div class="section">
+            <div class="section-header">
+                <h1>Daftar Pengguna</h1>
             </div>
-            <div class="card-body">
-                <form action="{{ route('admin.user.update.role', $data->id) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <div class="form-group">
-                        <label>Pilih Role</label>
-                        <select class="form-control" name="role">
-                            @foreach ($dataRole as $item)
-                                <option>{{ $item->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+            <div class="card">
+                <div class="card-header">
+                    <h4>Edit Role Pengguna</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('admin.user.update.role', $data->id) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <div class="form-group">
+                            <label>Pilih Role</label>
+                            <select class="form-control" name="role">
+                                @foreach ($dataRole as $item)
+                                    <option>{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
-
     </div>
 @endsection

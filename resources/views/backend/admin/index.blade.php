@@ -46,32 +46,42 @@
                     </div>
                 @endrole
 
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="card card-statistic-1">
-                        <div class="card-icon bg-warning">
-                            <i class="fas fa-file"></i>
-                        </div>
-                        <div class="card-wrap">
-                            @role('mentor')
+                @role('mentor')
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1">
+                            <div class="card-icon bg-warning">
+                                <i class="fas fa-file"></i>
+                            </div>
+                            <div class="card-wrap">
                                 <div class="card-header">
                                     <h4>Total Kelas ( {{ Auth()->user()->username }} )</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ $dataKelasMentor }}
                                 </div>
-                            @endrole
-                            @role('admin')
+                            </div>
+                        </div>
+                    </div>
+                @endrole
+
+                @role('admin')
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="card card-statistic-1">
+                            <div class="card-icon bg-warning">
+                                <i class="fas fa-file"></i>
+                            </div>
+                            <div class="card-wrap">
                                 <div class="card-header">
                                     <h4>Total Kelas</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ $dataKelas }}
                                 </div>
-                            @endrole
+                            </div>
                         </div>
                     </div>
-                </div>
-                
+                @endrole
+
 
 
                 {{-- <div class="row">
