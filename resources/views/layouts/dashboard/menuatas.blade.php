@@ -15,7 +15,7 @@
                 @if (!Auth()->user()->image)
                     <img alt="image" src="{{ asset('stisla/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
                 @else
-                    <img src="{{ asset('images_profil/' . Auth::user()->image) }}" alt="profil" width="50px">
+                    <img src="{{ asset('images_profil/' . Auth::user()->image) }}" alt="profil" max-width="100px" class="rounded-circle mr-1">
                 @endif
                 <div class="d-sm-none d-lg-inline-block">Hai, {{ Auth::user()->username }}</div>
             </a>

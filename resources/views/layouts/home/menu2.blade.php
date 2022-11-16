@@ -78,17 +78,19 @@
                             x-transition:leave="transition ease-in duration-75"
                             x-transition:leave-start="transform opacity-100 scale-100">
                             <div class="flex justify-center items-center space-x-3 cursor-pointer">
-                                <div class="w-12 h-12 rounded-full overflow-hidden border-2  border-gray-900">
+                                <div class="w-8 h-8 rounded-full overflow-hidden border-2  border-gray-900">
                                     @if (!Auth()->user()->image)
                                         <img src="{{ asset('stisla/img/avatar/avatar-1.png') }}"
-                                            alt="Designed by syarifahbrit / Freepik" class="w-full h-full object-cover">
+                                            alt="Designed by syarifahbrit / Freepik" class="w-full h-full rounded-circle">
                                     @else
                                         <img src="{{ asset('images_profil/' . Auth::user()->image) }}" alt="profil"
-                                            width="50px" class="w-full h-full object-cover">
+                                            class="w-full h-full rounded-circle" >
                                     @endif
                                 </div>
-                                <div class="font-semibold  text-white font-vietnam text-base">
-                                    <div class="cursor-pointer">{{ Auth()->user()->username }}</div>
+                                <div class="text-white font-vietnam text-base">
+                                    <div class="cursor-pointer">
+                                        <label for="">{{ Auth()->user()->username }}</label>
+                                    </div>
                                 </div>
                             </div>
                             <div x-show="open" x-transition:enter="transition ease-out duration-100"

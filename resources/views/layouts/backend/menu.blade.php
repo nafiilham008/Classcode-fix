@@ -20,22 +20,22 @@
                 <li class="menu-header">Akses Admin</li>
                 <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.user') ? 'active' : '' }}">
                     <a href="{{ route('admin.user') }}" class="nav-link"><i
-                            class="fas fa-gear"></i><span>Pelanggan</span></a>
+                            class="fas fa-users"></i><span>Pelanggan</span></a>
                 </li>
             @endrole
 
             @role('admin|mentor')
                 <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.kelas') ? 'active' : '' }}">
-                    <a href="{{ route('admin.kelas') }}" class="nav-link"><i class="fas fa-gear"></i><span>Kelas</span></a>
+                    <a href="{{ route('admin.kelas') }}" class="nav-link"><i class="fas fa-file"></i><span>Kelas</span></a>
                 </li>
             @endrole
 
             @role('admin')
                 <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.promo') ? 'active' : '' }}">
-                    <a href="{{ route('admin.promo') }}" class="nav-link"><i class="fas fa-gear"></i><span>Kupon</span></a>
+                    <a href="{{ route('admin.promo') }}" class="nav-link"><i class="fas fa-tags"></i><span>Kupon</span></a>
                 </li>
                 <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.payment') ? 'active' : '' }}">
-                    <a href="{{ route('admin.payment') }}" class="nav-link"><i class="fas fa-gear"></i><span>Metode
+                    <a href="{{ route('admin.payment') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Metode
                             Pembayaran</span></a>
                 </li>
             @endrole
@@ -52,7 +52,7 @@
             <li class="menu-header">Konfirmasi Pelanggan</li>
                 <li class="nav-item dropdown {{ Route::currentRouteNamed('admin.pending.kelas') ? 'active' : '' }}">
                     <a href="{{ route('admin.pending.kelas') }}" class="nav-link"><i
-                            class="fas fa-gear"></i><span>Daftar Pending</span></a>
+                            class="fas fa-list-check"></i><span>Daftar Pending</span></a>
                 </li>
             @endrole
 
