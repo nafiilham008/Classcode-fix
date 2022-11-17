@@ -31,9 +31,9 @@
 <body>
     <div class="lg:block hidden">
         <div class="bg-no-repeat bg-center bg-cover  w-screen h-screen"
-            style="background-image: url('../../assets/image/404m.png');">
+            style="background-image: url({{asset('assets/image/404m.png')}});">
             <div class="flex items-center justify-center h-screen flex-col">
-                <img src="../../assets/image/ilustrasi4.png" alt="">
+                <img src="{{asset('assets/image/ilustrasi4.png')}}" alt="">
                 <a href="{{ route('index') }}" class="px-4 py-2 bg-[#75B843]/80 mt-10 rounded-lg hover:bg-[#F9AE55] text-white">Back</a>
             </div>
         </div>

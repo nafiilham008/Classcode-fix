@@ -63,13 +63,18 @@ class DashboardController extends Controller
         if (empty($data)) {
             # jika data kelas kosong atau url tidak ada maka
             return redirect()->route('dashboard.index');
-            
         } else {
             # jika url tersedia maka
             $materi = MasterKelas::where(['kelas_id' => $data->id])->get();
-            $old = MasterKelas::where(['slug_url' => $slug_materi])->first();
-            // $old = MasterKelas::find($slug_materi)->first();
-            // dd($materi);
+            // $old = MasterKelas::where(['slug_url' => $slug_materi])->first();
+            // $old = MasterKelas::findOrFail($slug_materi)->first();
+            $old = DB::table('master_kelas')
+                ->select('master_kelas.*')
+                ->join('kelas', 'master_kelas.kelas_id', '=', 'kelas.id')
+                // ->join('users', 'master_kelas.user_id', '=', 'users.id')
+                ->where(['master_kelas.slug_url' => $slug_materi])
+                ->first();
+            dd($old);
             // dd($materi);
 
             return view('dashboard.kelas.materi', compact('data', 'materi', 'old'));

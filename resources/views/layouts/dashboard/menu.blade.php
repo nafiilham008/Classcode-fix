@@ -3,7 +3,7 @@
         <div class="sidebar-brand">
             {{-- <a href="index.html">Stisla</a> --}}
             <a href="{{ route('index') }}">
-                <img src="../../assets/image/logo.png" class="relative" alt="">
+                <img src="{{asset('assets/image/logo.png')}}" class="relative" alt="">
             </a>
         </div>
         {{-- <div class="sidebar-brand sidebar-brand-sm">
