@@ -66,19 +66,14 @@ class DashboardController extends Controller
         } else {
             # jika url tersedia maka
             $materi = MasterKelas::where(['kelas_id' => $data->id])->get();
-            // $old = MasterKelas::where(['slug_url' => $slug_materi])->first();
-            // $old = MasterKelas::findOrFail($slug_materi)->first();
             $old = DB::table('master_kelas')
                 ->select('master_kelas.*')
                 ->join('kelas', 'master_kelas.kelas_id', '=', 'kelas.id')
-                // ->join('users', 'master_kelas.user_id', '=', 'users.id')
                 ->where(['master_kelas.slug_url' => $slug_materi])
                 ->first();
-            dd($old);
-            // dd($materi);
+           
 
             return view('dashboard.kelas.materi', compact('data', 'materi', 'old'));
-            // return redirect()->route('dashboard.kelas.materi', ['slug_url' => $data->slug_url, 'slug_materi' => $master->slug_url]);
         }
     }
 }
