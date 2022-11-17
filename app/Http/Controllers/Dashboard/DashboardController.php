@@ -47,7 +47,7 @@ class DashboardController extends Controller
         $data = Kelas::where('slug_url', $slug_url)->first();
         if (empty($data)) {
             # jika data kelas kosong atau url tidak ada maka
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard.index');
         } else {
             # jika url tersedia maka
             $materi = MasterKelas::where(['kelas_id' => $data->id])->get();
@@ -57,15 +57,23 @@ class DashboardController extends Controller
 
     public function materi($slug_url, $slug_materi)
     {
+        // dd($slug_materi);
         $data = Kelas::where('slug_url', $slug_url)->first();
+        // dd($data);
         if (empty($data)) {
             # jika data kelas kosong atau url tidak ada maka
-            return redirect()->route('dashboard');
+            return redirect()->route('dashboard.index');
+            
         } else {
             # jika url tersedia maka
             $materi = MasterKelas::where(['kelas_id' => $data->id])->get();
             $old = MasterKelas::where(['slug_url' => $slug_materi])->first();
+            // $old = MasterKelas::find($slug_materi)->first();
+            // dd($materi);
+            // dd($materi);
+
             return view('dashboard.kelas.materi', compact('data', 'materi', 'old'));
+            // return redirect()->route('dashboard.kelas.materi', ['slug_url' => $data->slug_url, 'slug_materi' => $master->slug_url]);
         }
     }
 }

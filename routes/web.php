@@ -153,7 +153,6 @@ Route::group(['middleware' => ['role:user']], function () {
 
         // Route::get('kelas', [App\Http\Controllers\DashboardController::class, 'kelas'])->name('kelas.index');
 
-        // SEMENTARA
         Route::get('kelas/{slug_url}', [App\Http\Controllers\Dashboard\DashboardController::class, 'detail_kelas'])->name('dashboard.kelas.index');
         Route::get('kelas/{slug_url}/materi/{slug_materi}', [App\Http\Controllers\Dashboard\DashboardController::class, 'materi'])->name('dashboard.kelas.materi');
     });

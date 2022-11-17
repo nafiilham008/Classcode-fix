@@ -60,7 +60,7 @@
         <h1 class="text-[24px] mb-1 text-blue-900 font-bold text-justify font-vietnam  py-3">Mentor</h1>
         <div class="bg-white hover:shadow-lg w-[300px] rounded-xl h-48 lg:px-10 px-5 hover:top-[2px] hover:left-[1px]">
             <div class="flex justify-center flex-col items-center h-full">
-                <img class="w-[80px] h-[80px] rounded-full" src="{{ asset('images_kelas/' . $data->image) }}"  alt="Rounded avatar">
+                <img class="w-[80px] h-[80px] rounded-full" src="{{ asset('images_profil/' . $dataUser->image) }}"  alt="Rounded avatar">
                 <div class="flex justify-center">
                     <h1 class="text-[16px] w-3/4  text-blue-900 text-center font-bold font-vietnam  py-3">
                         {{ $data->id_user }}</h1>

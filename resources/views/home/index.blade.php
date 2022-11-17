@@ -80,8 +80,7 @@
                 <h1 class="lg:text-lg w-80 font-vietnam text-[#395083 font-bold text-center mt-[17px] mb-[28px] leadin">
                     Kursus Online</h1>
                 <p class="lg:text-sm w-80 font-vietnam text-[#395083] text-justify">
-                    Pilih kelas yang anda inginkan dan dapatkan pengalaman baru dari mentor terbaik kami di classcode learn
-                    code
+                    Dapat diakses dimana saja dan kapan saja
                 </p>
             </div>
             <div class="">
@@ -106,34 +105,30 @@
                 <h1 class="lg:text-lg w-80 font-vietnam text-[#395083 font-bold text-center mt-[17px] mb-[28px] leadin">
                     Metode Efektif</h1>
                 <p class="lg:text-sm w-80 font-vietnam text-[#395083] text-justify">
-                    Pilih kelas yang anda inginkan dan dapatkan pengalaman baru dari mentor terbaik kami di classcode learn
-                    code
+                    Metode pembelajaran menggunakan video yang diperbarui secara berkala
                 </p>
             </div>
         </div>
-        <div class="bg-white px-20">
+        <div class="bg-white px-20 py-20">
             <div class="lg:grid lg:grid-cols-12">
                 <div class="lg:col-span-6">
-                    <h1 class="text-[#003049] font-vietnam font-semiibold lg:text-4xl">The advantages of using HRIS with the
-                        features we have</h1>
+                    <h1 class="text-[#003049] font-vietnam font-semiibold lg:text-4xl">Keunggulan Classcode</h1>
                     <div class="lg:py-10">
                         <div class="flex gap-16">
                             <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
                                 height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
+                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Kurikulum internasional</h1>
                         </div>
                         <div class="flex gap-16 py-8">
                             <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
                                 height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
+                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Dapat diaskes kapan saja, </h1>
                         </div>
                         <div class="flex gap-16">
                             <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
                                 height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
+                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Langsung oleh mentor yang
+                                berpengalaman</h1>
                         </div>
                     </div>
                 </div>
@@ -156,69 +151,30 @@
                     </div>
                 </div>
                 <div class="lg:col-span-6">
-                    <h1 class="text-[#003049] font-vietnam font-semiibold lg:text-4xl">The advantages of using HRIS with
-                        the
-                        features we have</h1>
+                    <h1 class="text-[#003049] font-vietnam font-semiibold lg:text-4xl">Kenapa harus kami?</h1>
                     <div class="lg:py-10">
                         <div class="flex gap-16">
                             <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
                                 height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
+                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Harga lebih murah dibanding platform
+                                yang lain</h1>
                         </div>
                         <div class="flex gap-16 py-8">
                             <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
                                 height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
+                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Materi update secara berkala</h1>
                         </div>
                         <div class="flex gap-16">
                             <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
                                 height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
+                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Video berkualitas tinggi</h1>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="bg-white px-20">
-            <div class="lg:grid lg:grid-cols-12">
-                <div class="lg:col-span-6">
-                    <h1 class="text-[#003049] font-vietnam font-semiibold lg:text-4xl">The advantages of using HRIS with
-                        the
-                        features we have</h1>
-                    <div class="lg:py-10">
-                        <div class="flex gap-16">
-                            <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
-                                height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
-                        </div>
-                        <div class="flex gap-16 py-8">
-                            <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
-                                height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
-                        </div>
-                        <div class="flex gap-16">
-                            <iconify-icon icon="teenyicons:tick-circle-solid" style="color: #669bbc;" width="24"
-                                height="24"></iconify-icon>
-                            <h1 class="text-[#333333] w-80 font-vietnam lg:text-base">Make Repetitive Jobs Automated and
-                                Facilitate Employee Performance Control</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-6">
-                    <div class="col-span-6 flex justify-center">
-                        <div class="bg-no-repeat bg-center bg-cover  w-96 h-96"
-                            style="background-image: url('../../assets/image/ilustrasi2.png');">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div class="px-20 py-20">
             <div class="flex flex-col items-start">
                 <h1 class="text-4xl text-center font-vietnam font-bold tracking-wide text-[#395083]">
@@ -230,7 +186,8 @@
                 </p>
             </div>
             <div class="flex justify-end py-10">
-                <a href="{{ route('kelas.index') }}" class="font-vietnam text-lg text-[#219EBC] hover:text-[#003049] items-center flex">Lihat
+                <a href="{{ route('kelas.index') }}"
+                    class="font-vietnam text-lg text-[#219EBC] hover:text-[#003049] items-center flex">Lihat
                     Selanjutnya <iconify-icon icon="bxs:right-arrow" style="color: #219ebc;" width="25"
                         height="25"></iconify-icon></a>
             </div>
@@ -240,8 +197,8 @@
                         <div
                             class="lg:w-[300px] bg-white rounded-xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                             <div class="bg-no-repeat bg-center bg-cover  w-[298px] h-48 rounded-t-lg"
-                            style="background-image: url('{{ asset('images_kelas/' . $kelas->image) }}');">
-                        </div>
+                                style="background-image: url('{{ asset('images_kelas/' . $kelas->image) }}');">
+                            </div>
                             <div class="py-5 px-4">
                                 <a href="{{ route('kelas.detail', $kelas->slug_url) }}">
                                     <h5
@@ -249,15 +206,14 @@
                                         {{ $kelas->title }}</h5>
                                 </a>
                                 <div class="flex gap-3 items-center py-3">
-                                    <iconify-icon icon="cil:clock" style="color: #219ebc;" width="24"
-                                        height="24">
-                                    </iconify-icon>
+                                    <iconify-icon icon="fluent:people-edit-20-regular" style="color: #219ebc;"
+                                        width="24" height="24"></iconify-icon>
                                     <h3 class="text-sm font-vietnam text-[#219ebc]">{{ $kelas->id_user }}</h3>
                                 </div>
                                 <div class="flex gap-3 items-center">
                                     <iconify-icon icon="ph:medal-light" style="color: #219ebc;" width="24"
                                         height="24"></iconify-icon>
-                                    <h3 class="text-sm font-vietnam text-[#219ebc]">7 Hari</h3>
+                                    <h3 class="text-sm font-vietnam text-[#219ebc]">Bersertifikat</h3>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +297,7 @@
 
             </div>
         </div>
-        <div class="bg-white py-10">
+        {{-- <div class="bg-white py-10">
             <div class="flex flex-col items-start px-20">
                 <h1 class="text-4xl text-center font-vietnam font-bold tracking-wide text-[#395083]">
                     Apa kata mereka?
@@ -460,7 +416,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
     @endsection
 
     @section('js-tambahan')
@@ -543,9 +499,9 @@
             }
 
             /* .card{
-                border-radius: 25px;
-                background-color: #FFF;
-                } */
+                    border-radius: 25px;
+                    background-color: #FFF;
+                    } */
             .image-content,
             .card-content {
                 display: flex;
@@ -572,35 +528,35 @@
             }
 
             /* .overlay::before,
-                .overlay::after{
-                content: '';
-                position: absolute;
-                right: 0;
-                bottom: -40px;
-                height: 40px;
-                width: 40px;
-                background-color: #4070F4;
-                } */
+                    .overlay::after{
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: -40px;
+                    height: 40px;
+                    width: 40px;
+                    background-color: #4070F4;
+                    } */
             .overlay::after {
                 border-radius: 0 25px 0 0;
                 /* background-color: #FFF; */
             }
 
             /* .card-image{
-                position: relative;
-                height: 150px;
-                width: 150px;
-                border-radius: 50%;
-                background: #FFF;
-                padding: 3px;
-                } */
+                    position: relative;
+                    height: 150px;
+                    width: 150px;
+                    border-radius: 50%;
+                    background: #FFF;
+                    padding: 3px;
+                    } */
             /* .card-image .card-img{
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                border-radius: 50%;
-                border: 4px solid #4070F4;
-                } */
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 4px solid #4070F4;
+                    } */
             .name {
                 font-size: 18px;
                 font-weight: 500;

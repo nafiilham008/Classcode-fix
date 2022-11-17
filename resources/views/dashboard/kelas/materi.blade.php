@@ -24,8 +24,9 @@
 
                 </div>
                 <div class="col-12 col-md-8 col-lg-8">
-
                     <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="{{ $data->url_video }}"></div>
+                    {{-- @foreach ($old as $item)
+                    @endforeach --}}
 
                 </div>
 

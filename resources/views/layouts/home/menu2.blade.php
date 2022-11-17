@@ -31,7 +31,7 @@
                 <div class="relative py-2">
                     <form action="{{ route('home.search') }}" method="GET">
                         <input type="search" name="search"
-                            class="peer cursor-pointer font-vietnam  relative z-10 h-10 w-10 rounded-full border border-white bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-black text-white focus:pl-16 focus:pr-4 @error('search') is-invalid @enderror"
+                            class="peer cursor-pointer font-vietnam  relative z-10 h-10 w-10 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-black text-white focus:pl-16 focus:pr-4 @error('search') is-invalid @enderror"
                             placeholder="Cari Kelas" />
 
                         <svg xmlns="http://www.w3.org/2000/svg"

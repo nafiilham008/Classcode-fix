@@ -172,29 +172,29 @@ class HomeController extends Controller
                     // dd($request->all());
                     if (empty($check->payment_id)) {
                         # jika payment id kosong pada checkout maka
-    
+
                         $join = DB::table('checkouts')
                             // ->select('kelas.*', 'checkouts.*', 'checkouts.harga as harga_akhir', 'kelas.harga as harga_sebelum')
                             ->join('users', 'users.id', '=', 'checkouts.user_id')
                             ->join('kelas', 'kelas.id', '=', 'checkouts.kelas_id')
                             ->where(['users.id' => auth()->user()->id, 'checkouts.kelas_id' => $data->id])
                             ->first();
-    
+
                         $request->validate([
                             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                         ]);
-    
+
                         $imageName = time() . '.' . $request->image->extension();
-    
+
                         // dd($imageName);
                         $check->update([
                             'payment_id' => $pay->id,
                             'status' => 'success',
                             'image_trx' => $imageName
                         ]);
-    
+
                         $request->image->move(public_path('images_trx/'), $imageName);
-    
+
                         DB::table('join_kelas')->insert([
                             'kelas_id' => $join->kelas_id,
                             'user_id' => $join->user_id,
@@ -207,7 +207,7 @@ class HomeController extends Controller
                         return view('payment.gagal');
                     }
                     // try {                    
-                        
+
                     // } catch (\Throwable $th) {
                     //     return $th->getMessage();
                     // }
@@ -221,12 +221,19 @@ class HomeController extends Controller
     public function detail($slug_url)
     {
         $data = Kelas::where('slug_url', $slug_url)->first();
+        $dataUser = DB::table('kelas')
+            ->select('users.image')
+            // ->join('kelas', 'users.kelas_id', '=', 'kelas.id')
+            ->join('users', 'kelas.id_user', '=', 'users.username')
+            ->where(['kelas.slug_url' => $slug_url])
+            ->first();
+
         if (empty($data)) {
             # jika data kelas kosong atau url tidak ada maka
             return redirect()->route('index');
         } else {
             # jika url tersedia maka
-            return view('kelas.detail', compact('data'));
+            return view('kelas.detail', compact('data', 'dataUser'));
         }
     }
 
